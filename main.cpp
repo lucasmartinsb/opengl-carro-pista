@@ -60,7 +60,7 @@ int main()
 
     // configure global opengl state
     // -----------------------------
-    //glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
 
     // build and compile our shader zprogram
     // ------------------------------------
