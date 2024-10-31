@@ -16,6 +16,10 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+glm::vec3 cameraPos = glm::vec3(-8.0f, 2.0f, 8.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
 int main()
 {
     // glfw: initialize and configure
@@ -127,6 +131,34 @@ int main()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
+    float floorVertices[] = {
+        // Posição        // Coordenadas de textura
+        -5.0f, -0.5f,  5.0f,  0.0f, 0.0f,
+        5.0f, -0.5f,  5.0f,  1.0f, 0.0f,
+        5.0f, -0.5f, -5.0f,  1.0f, 1.0f,
+        5.0f, -0.5f, -5.0f,  1.0f, 1.0f,
+        -5.0f, -0.5f, -5.0f,  0.0f, 1.0f,
+        -5.0f, -0.5f,  5.0f,  0.0f, 0.0f
+    };
+
+    // Configuração do VAO e VBO para o chão
+    unsigned int floorVAO, floorVBO;
+    glGenVertexArrays(1, &floorVAO);
+    glGenBuffers(1, &floorVBO);
+
+    glBindVertexArray(floorVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, floorVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(floorVertices), floorVertices, GL_STATIC_DRAW);
+
+    // Atributos de posição
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // Atributos de coordenadas de textura
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    glBindVertexArray(0);
+
 
     // load and create a texture
     // -------------------------
@@ -165,8 +197,8 @@ int main()
     // set texture filtering parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // load image, create texture and generate mipmaps
-    data = stbi_load("res/images/opengl.png", &width, &height, &nrChannels, 0);
+    //load image, create texture and generate mipmaps
+    data = stbi_load("res/images/Chao.png", &width, &height, &nrChannels, 0);
     if (data)
     {
         // note that the awesomeface.png has transparency and thus an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
@@ -204,19 +236,19 @@ int main()
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture1);
         glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, texture2);
+        // glBindTexture(GL_TEXTURE_2D, texture2);
 
         // activate shader
         ourShader.use();
 
         // create transformations
         glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        glm::mat4 view          = glm::mat4(1.0f);
+        glm::mat4 view          = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+        
         glm::mat4 projection    = glm::mat4(1.0f);
-        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
+        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
        // model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, -0.5f, 0.0f));
         // model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 0.5f, -0.5f));
-        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         // retrieve the matrix uniform locations
         unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
@@ -230,6 +262,18 @@ int main()
         // render box
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
+
+        // Renderizar o chão
+        glBindVertexArray(floorVAO);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture2); // Use a mesma textura do cubo
+
+        glm::mat4 modelFloor = glm::mat4(1.0f);
+        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f));  // Desloca o chão para baixo
+        modelFloor = glm::scale(modelFloor, glm::vec3(2.0f, 1.0f, 2.0f));
+        ourShader.setMat4("model", modelFloor);
+        glBindVertexArray(floorVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
@@ -255,6 +299,26 @@ void processInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    const float cameraSpeed = 0.05f;
+    // ajustar de acordo com a velocidade do computador
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    cameraPos += cameraSpeed * cameraFront;
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    cameraPos -= cameraSpeed * cameraFront;
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+
+    if (glfwGetKey(window, GLFW_KEY_KP_UP) == GLFW_PRESS) {
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    }
+    
+
+
+
+
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
