@@ -1,5 +1,6 @@
 // #include <GL/glew.h>
 // #include <GLFW/glfw3.h>
+#include <vector>
 #include <glad/glad.h>
 #include "opengl_utils.cpp"
 #include "vendor/stb_image.h"
@@ -16,7 +17,7 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-glm::vec3 cameraPos = glm::vec3(-8.0f, 2.0f, 8.0f);
+glm::vec3 cameraPos = glm::vec3(-15.0f, 2.0f, 15.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -72,64 +73,159 @@ int main()
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
-    float vertices[] = {
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+    float baseVertices[] = {
+        // Face traseira
+        -0.5f, -0.3f, -1.0f,  0.0f, 0.0f, // Dimensões ajustadas em Y e Z
+        0.5f, -0.3f, -1.0f,  1.0f, 0.0f,
+        0.5f,  0.3f, -1.0f,  1.0f, 1.0f,
+        0.5f,  0.3f, -1.0f,  1.0f, 1.0f,
+        -0.5f,  0.3f, -1.0f,  0.0f, 1.0f,
+        -0.5f, -0.3f, -1.0f,  0.0f, 0.0f,
 
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        // Face frontal
+        -0.5f, -0.3f,  1.0f,  0.0f, 0.0f,
+        0.5f, -0.3f,  1.0f,  1.0f, 0.0f,
+        0.5f,  0.3f,  1.0f,  1.0f, 1.0f,
+        0.5f,  0.3f,  1.0f,  1.0f, 1.0f,
+        -0.5f,  0.3f,  1.0f,  0.0f, 1.0f,
+        -0.5f, -0.3f,  1.0f,  0.0f, 0.0f,
 
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        // Face lateral esquerda
+        -0.5f,  0.3f,  1.0f,  1.0f, 0.0f,
+        -0.5f,  0.3f, -1.0f,  1.0f, 1.0f,
+        -0.5f, -0.3f, -1.0f,  0.0f, 1.0f,
+        -0.5f, -0.3f, -1.0f,  0.0f, 1.0f,
+        -0.5f, -0.3f,  1.0f,  0.0f, 0.0f,
+        -0.5f,  0.3f,  1.0f,  1.0f, 0.0f,
 
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        // Face lateral direita
+        0.5f,  0.3f,  1.0f,  1.0f, 0.0f,
+        0.5f,  0.3f, -1.0f,  1.0f, 1.0f,
+        0.5f, -0.3f, -1.0f,  0.0f, 1.0f,
+        0.5f, -0.3f, -1.0f,  0.0f, 1.0f,
+        0.5f, -0.3f,  1.0f,  0.0f, 0.0f,
+        0.5f,  0.3f,  1.0f,  1.0f, 0.0f,
 
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        // Face inferior
+        -0.5f, -0.3f, -1.0f,  0.0f, 1.0f,
+        0.5f, -0.3f, -1.0f,  1.0f, 1.0f,
+        0.5f, -0.3f,  1.0f,  1.0f, 0.0f,
+        0.5f, -0.3f,  1.0f,  1.0f, 0.0f,
+        -0.5f, -0.3f,  1.0f,  0.0f, 0.0f,
+        -0.5f, -0.3f, -1.0f,  0.0f, 1.0f,
 
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+        // Face superior
+        -0.5f,  0.3f, -1.0f,  0.0f, 1.0f,
+        0.5f,  0.3f, -1.0f,  1.0f, 1.0f,
+        0.5f,  0.3f,  1.0f,  1.0f, 0.0f,
+        0.5f,  0.3f,  1.0f,  1.0f, 0.0f,
+        -0.5f,  0.3f,  1.0f,  0.0f, 0.0f,
+        -0.5f,  0.3f, -1.0f,  0.0f, 1.0f
     };
-    unsigned int VBO, VAO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
 
-    glBindVertexArray(VAO);
+    float topVertices[] = {
+        // Face traseira
+        -0.5f,  0.3f, -0.8f,  0.0f, 0.0f,
+        0.5f,  0.3f, -0.8f,  1.0f, 0.0f,
+        0.5f,  0.6f, -0.8f,  1.0f, 1.0f,
+        0.5f,  0.6f, -0.8f,  1.0f, 1.0f,
+        -0.5f,  0.6f, -0.8f,  0.0f, 1.0f,
+        -0.5f,  0.3f, -0.8f,  0.0f, 0.0f,
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        // Face frontal
+        -0.5f,  0.3f,  0.8f,  0.0f, 0.0f,
+        0.5f,  0.3f,  0.8f,  1.0f, 0.0f,
+        0.5f,  0.6f,  0.8f,  1.0f, 1.0f,
+        0.5f,  0.6f,  0.8f,  1.0f, 1.0f,
+        -0.5f,  0.6f,  0.8f,  0.0f, 1.0f,
+        -0.5f,  0.3f,  0.8f,  0.0f, 0.0f,
 
-    // position attribute
+        // Face lateral esquerda
+        -0.5f,  0.6f,  0.8f,  1.0f, 0.0f,
+        -0.5f,  0.6f, -0.8f,  1.0f, 1.0f,
+        -0.5f,  0.3f, -0.8f,  0.0f, 1.0f,
+        -0.5f,  0.3f, -0.8f,  0.0f, 1.0f,
+        -0.5f,  0.3f,  0.8f,  0.0f, 0.0f,
+        -0.5f,  0.6f,  0.8f,  1.0f, 0.0f,
+
+        // Face lateral direita
+        0.5f,  0.6f,  0.8f,  1.0f, 0.0f,
+        0.5f,  0.6f, -0.8f,  1.0f, 1.0f,
+        0.5f,  0.3f, -0.8f,  0.0f, 1.0f,
+        0.5f,  0.3f, -0.8f,  0.0f, 1.0f,
+        0.5f,  0.3f,  0.8f,  0.0f, 0.0f,
+        0.5f,  0.6f,  0.8f,  1.0f, 0.0f,
+
+        // Face inferior
+        -0.5f,  0.3f, -0.8f,  0.0f, 1.0f,
+        0.5f,  0.3f, -0.8f,  1.0f, 1.0f,
+        0.5f,  0.3f,  0.8f,  1.0f, 0.0f,
+        0.5f,  0.3f,  0.8f,  1.0f, 0.0f,
+        -0.5f,  0.3f,  0.8f,  0.0f, 0.0f,
+        -0.5f,  0.3f, -0.8f,  0.0f, 1.0f,
+
+        // Face superior
+        -0.5f,  0.6f, -0.8f,  0.0f, 1.0f,
+        0.5f,  0.6f, -0.8f,  1.0f, 1.0f,
+        0.5f,  0.6f,  0.8f,  1.0f, 0.0f,
+        0.5f,  0.6f,  0.8f,  1.0f, 0.0f,
+        -0.5f,  0.6f,  0.8f,  0.0f, 0.0f,
+        -0.5f,  0.6f, -0.8f,  0.0f, 1.0f
+    };
+
+
+    unsigned int VAO1, VBO1;
+    unsigned int VAO2, VBO2;
+
+    // Primeiro paralelepípedo
+    glGenVertexArrays(1, &VAO1);
+    glGenBuffers(1, &VBO1);
+    glBindVertexArray(VAO1);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO1);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(baseVertices), baseVertices, GL_STATIC_DRAW);
+
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    // texture coord attribute
+
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+
+    // Segundo paralelepípedo
+    glGenVertexArrays(1, &VAO2);
+    glGenBuffers(1, &VBO2);
+    glBindVertexArray(VAO2);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO2);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(topVertices), topVertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    // Desvincular para evitar erros
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    unsigned int squareVAO, squareVBO;
+    glGenVertexArrays(1, &squareVAO);
+    glGenBuffers(1, &squareVBO);
+
+    glBindVertexArray(squareVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, squareVBO);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    // Desvincular VAO
+    glBindVertexArray(0);
+
 
     float floorVertices[] = {
         // Posição        // Coordenadas de textura
@@ -241,15 +337,24 @@ int main()
         // activate shader
         ourShader.use();
 
-        // create transformations
-        glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        glm::mat4 view          = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
-        
-        glm::mat4 projection    = glm::mat4(1.0f);
-        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
-       // model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, -0.5f, 0.0f));
-        // model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 0.5f, -0.5f));
+        // Ângulo de yaw (em graus)
+        float yawAngle = -45.0f; 
+
+        // Converta o yaw para radianos
+        float yawRadians = glm::radians(yawAngle);
+
+        // Calcule o novo vetor "cameraFront" com base no yaw
+        cameraFront.x = cos(yawRadians); // Componente X
+        cameraFront.z = sin(yawRadians); // Componente Z
+        cameraFront = glm::normalize(cameraFront); // Normalize o vetor
+
+        // Matrizes de transformação
+        glm::mat4 model = glm::mat4(1.0f); // Inicialize a matriz modelo como identidade
+        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
+
+        glm::mat4 projection = glm::mat4(1.0f); // Inicialize a matriz de projeção
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
         // retrieve the matrix uniform locations
         unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
         unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
@@ -259,9 +364,13 @@ int main()
         // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
         ourShader.setMat4("projection", projection);
 
-        // render box
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+         // Renderizar o primeiro paralelepípedo
+        glBindVertexArray(VAO1);
+        glDrawArrays(GL_TRIANGLES, 0, 36); // 36 vértices (6 faces * 2 triângulos * 3 vértices)
+
+        // Renderizar o segundo paralelepípedo
+        glBindVertexArray(VAO2);
+        glDrawArrays(GL_TRIANGLES, 0, 36); // 36 vértices novamente
 
         // Renderizar o chão
         glBindVertexArray(floorVAO);
@@ -284,8 +393,11 @@ int main()
 
     // optional: de-allocate all resources once they've outlived their purpose:
     // ------------------------------------------------------------------------
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
+    glDeleteVertexArrays(1, &VAO1);
+    glDeleteBuffers(1, &VBO1);
+
+    glDeleteVertexArrays(1, &VAO2);
+    glDeleteBuffers(1, &VBO2);
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------
