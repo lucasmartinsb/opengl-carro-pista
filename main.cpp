@@ -71,7 +71,7 @@ int main()
     // ------------------------------------
     Shader ourShader("vertex.glsl", "fragment.glsl");
 
-    float topVertices[] = {
+    float carroVertices[] = {
         3.3f, 1.0f, -0.5f, 0.875f, 0.5f,
         4.3f, 1.0f, 0.5f, 0.625f, 0.75f,
         4.3f, 1.0f, -0.5f, 0.625f, 0.5f,
@@ -299,7 +299,7 @@ int main()
     glBindVertexArray(VAOcarro);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBOcarro);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(topVertices), topVertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(carroVertices), carroVertices, GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
@@ -452,8 +452,11 @@ int main()
 
         // Matrizes de transformação
         glm::mat4 model = glm::mat4(1.0f); // Inicialize a matriz modelo como identidade
-        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
+        model = glm::translate(model, glm::vec3(-3.0f, -1.5f, 8.0f)); // Translada para nova posição
+        model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
 
+        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
+        view = glm::rotate(view, glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 1.0f)); // Rotação em torno do eixo X
         glm::mat4 projection = glm::mat4(1.0f); // Inicialize a matriz de projeção
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
