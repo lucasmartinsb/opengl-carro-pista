@@ -21,6 +21,10 @@ glm::vec3 cameraPos = glm::vec3(-15.0f, 2.0f, 15.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
+glm::vec3 carroPosicao(-3.0f, -1.5f, 8.0f); // Começa na origem
+float velocidadeCarro = 0.05f;               // Controle de velocidade
+float carroRotacao = 90.0f;
+
 int main()
 {
     // glfw: initialize and configure
@@ -396,7 +400,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     //load image, create texture and generate mipmaps
-    data = stbi_load("res/images/Pista.png", &width, &height, &nrChannels, 0);
+    data = stbi_load("res/images/Chao.png", &width, &height, &nrChannels, 0);
     if (data)
     {
         // note that the awesomeface.png has transparency and thus an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
@@ -450,10 +454,15 @@ int main()
         cameraFront.z = sin(yawRadians); // Componente Z
         cameraFront = glm::normalize(cameraFront); // Normalize o vetor
 
+        // Calculo posição do carro
+        carroPosicao.x += velocidadeCarro; 
+        carroRotacao  += velocidadeCarro*5; 
+
         // Matrizes de transformação
         glm::mat4 model = glm::mat4(1.0f); // Inicialize a matriz modelo como identidade
-        model = glm::translate(model, glm::vec3(-3.0f, -1.5f, 8.0f)); // Translada para nova posição
+        model = glm::translate(model, carroPosicao); // Translada para nova posição
         model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+        model = glm::rotate(model, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotação inicial do carro 
 
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
         view = glm::rotate(view, glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 1.0f)); // Rotação em torno do eixo X
