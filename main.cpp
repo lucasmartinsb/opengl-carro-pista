@@ -13,6 +13,8 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
+bool permitirMovimentacao = false;
+
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
@@ -21,7 +23,7 @@ glm::vec3 cameraPos = glm::vec3(-15.0f, 2.0f, 15.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-glm::vec3 carroPosicao(-3.0f, -1.5f, 8.0f); // Começa na origem
+glm::vec3 carroPosicao(-3.0f, -1.5f, 3.0f); // Começa na origem
 float velocidadeCarro = 0.05f;               // Controle de velocidade
 float carroRotacao = 90.0f;
 
@@ -514,6 +516,8 @@ int main()
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window)
 {
+    if (!permitirMovimentacao) return; // Ignorar teclas
+
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
