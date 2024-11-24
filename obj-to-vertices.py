@@ -64,7 +64,7 @@ def generate_vertex_list(vertices, texture_coords, faces):
     return vertex_list
 
 # Caminho para o arquivo .obj
-file_path = 'jeep.obj'
+file_path = 'carro.obj'
 
 # Parse do arquivo
 vertices, texture_coords, normals, faces = parse_obj(file_path)
