@@ -1246,7 +1246,7 @@ int main()
 
     // load and create a texture
     // -------------------------
-    unsigned int texture1, texture2;
+    unsigned int texture1, texture2, texture3;
     // texture 1
     // ---------
     glGenTextures(1, &texture1);
@@ -1294,12 +1294,35 @@ int main()
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
+    // texture Cone
+    glGenTextures(1, &texture3);
+    glBindTexture(GL_TEXTURE_2D, texture3);
+    // set the texture wrapping parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    //load image, create texture and generate mipmaps
+    data = stbi_load("res/images/texturaCone.jpeg", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        // note that the awesomeface.png has transparency and thus an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
 
     // tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
     // -------------------------------------------------------------------------------------------
     ourShader.use();
     ourShader.setInt("texture1", 0);
     ourShader.setInt("texture2", 1);
+    ourShader.setInt("texture3", 2);
 
 
     // render loop
@@ -1372,35 +1395,26 @@ int main()
         modelPlaca = glm::translate(modelPlaca, glm::vec3(-2.0f, -1.5f, 4.0f)); // Posiciona a placa
         modelPlaca = glm::scale(modelPlaca, glm::vec3(0.30f, 0.30f, 0.30f)); // Ajuste o tamanho se necessário
         modelPlaca = glm::rotate(modelPlaca, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
-
-        // Passe a matriz model da placa para o shader
         ourShader.setMat4("model", modelPlaca);
-
-        // Renderize a placa
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
         glBindVertexArray(0); // Desvincula o VAO
 
         // Renderizar o cone
         glBindVertexArray(coneVAO); // Certifique-se de ter configurado o VAO da placa
-
-        // Crie a matriz de transformação para a placa
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
         glm::mat4 modelCone = glm::mat4(1.0f); // Matriz identidade
-        modelCone = glm::translate(modelCone, glm::vec3(-2.0f, -1.5f, 4.0f)); // Posiciona a placa
+        modelCone = glm::translate(modelCone, glm::vec3(8.0f, -1.5f, -6.0f)); // Posiciona a placa
         modelCone = glm::scale(modelCone, glm::vec3(0.30f, 0.30f, 0.30f)); // Ajuste o tamanho se necessário
         modelCone = glm::rotate(modelCone, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
-
-        // Passe a matriz model da placa para o shader
         ourShader.setMat4("model", modelCone);
-
-        // Renderize a placa
-        glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
+        glDrawArrays(GL_TRIANGLES, 2, 1000);
         glBindVertexArray(0); // Desvincula o VAO
 
         // Renderizar o chão
         glBindVertexArray(floorVAO);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2); // Use a mesma textura do cubo
-
         glm::mat4 modelFloor = glm::mat4(1.0f);
         modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f));  // Desloca o chão para baixo
         modelFloor = glm::scale(modelFloor, glm::vec3(2.0f, 1.0f, 2.0f));
