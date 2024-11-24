@@ -59,7 +59,7 @@ def generate_vertex_list(vertices, texture_coords, faces):
             u, v = texture_coords[tex_index]
 
             # Adicionar ao vertex_list no formato desejado
-            vertex_list.append(f"{x}f, {y}f, {z}f, {u}f, {v}f,")
+            vertex_list.append(f"{round(x-1.75, 3)}f, {y}f, {z}f, {u}f, {v}f,")
     
     return vertex_list
 
