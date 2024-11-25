@@ -640,6 +640,249 @@ float placaVertices[] = {
     -1.05782f, 5.90201f, -0.31016f, 0.625f, 0.75f
 };
 
+float arcoVertices[] = {
+4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
+4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
+4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
+4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+6.0f, 0.0f, 2.0f, 8.0f, -10.0f,
+8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
+4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+6.0f, 0.0f, 5.0f, -2.0f, -0.0f,
+6.0f, 6.0f, 5.0f, -2.0f, 7.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
+1.0f, 8.0f, 7.0f, 13.0f, 10.0f,
+-2.0f, 6.0f, 11.0f, 2.0f, -13.0f,
+1.0f, 7.0f, 11.0f, 1.0f, -11.0f,
+0.0f, 6.0f, 12.0f, 1.0f, -13.0f,
+-0.0f, 8.0f, 9.0f, 2.0f, -19.0f,
+1.0f, 7.0f, 11.0f, 1.0f, -21.0f,
+-1.0f, 7.0f, 10.0f, 2.0f, -21.0f,
+-0.0f, 8.0f, 9.0f, 2.0f, -26.0f,
+3.0f, 8.0f, 8.0f, 1.0f, -24.0f,
+2.0f, 8.0f, 10.0f, 1.0f, -26.0f,
+3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+3.0f, 8.0f, 8.0f, -1.0f, 27.0f,
+1.0f, 8.0f, 7.0f, -2.0f, 27.0f,
+3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+6.0f, 7.0f, 6.0f, -2.0f, 23.0f,
+5.0f, 8.0f, 7.0f, -1.0f, 25.0f,
+4.0f, 7.0f, 5.0f, -3.0f, 20.0f,
+6.0f, 6.0f, 5.0f, -2.0f, 18.0f,
+6.0f, 7.0f, 6.0f, -2.0f, 20.0f,
+2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
+3.0f, 8.0f, 8.0f, -13.0f, 10.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+6.0f, 6.0f, 2.0f, 3.0f, 8.0f,
+8.0f, 0.0f, 3.0f, 2.0f, -0.0f,
+6.0f, 0.0f, 2.0f, 3.0f, -0.0f,
+6.0f, 6.0f, 2.0f, 3.0f, 15.0f,
+8.0f, 7.0f, 3.0f, 2.0f, 16.0f,
+8.0f, 6.0f, 3.0f, 2.0f, 15.0f,
+6.0f, 7.0f, 2.0f, 3.0f, 19.0f,
+7.0f, 9.0f, 5.0f, 2.0f, 22.0f,
+8.0f, 7.0f, 3.0f, 2.0f, 19.0f,
+3.0f, 10.0f, 5.0f, 2.0f, 26.0f,
+7.0f, 9.0f, 5.0f, 2.0f, 23.0f,
+5.0f, 9.0f, 4.0f, 3.0f, 23.0f,
+1.0f, 10.0f, 7.0f, 2.0f, 27.0f,
+5.0f, 10.0f, 6.0f, 1.0f, 24.0f,
+3.0f, 10.0f, 5.0f, 2.0f, 24.0f,
+1.0f, 10.0f, 7.0f, -2.0f, -23.0f,
+1.0f, 10.0f, 10.0f, -1.0f, -26.0f,
+3.0f, 10.0f, 8.0f, -1.0f, -23.0f,
+-2.0f, 9.0f, 11.0f, -2.0f, -23.0f,
+1.0f, 10.0f, 10.0f, -1.0f, -20.0f,
+-1.0f, 10.0f, 9.0f, -2.0f, -20.0f,
+-2.0f, 9.0f, 11.0f, -2.0f, -14.0f,
+-2.0f, 7.0f, 13.0f, -1.0f, -17.0f,
+-0.0f, 9.0f, 12.0f, -1.0f, -14.0f,
+-4.0f, 6.0f, 13.0f, -2.0f, -8.0f,
+-2.0f, 7.0f, 13.0f, -1.0f, -7.0f,
+-4.0f, 7.0f, 12.0f, -2.0f, -7.0f,
+-4.0f, 0.0f, 13.0f, -2.0f, -0.0f,
+-2.0f, 6.0f, 14.0f, -1.0f, 8.0f,
+-4.0f, 6.0f, 13.0f, -2.0f, 8.0f,
+-4.0f, 0.0f, 13.0f, 12.0f, -25.0f,
+0.0f, 0.0f, 12.0f, 10.0f, -23.0f,
+-2.0f, 0.0f, 14.0f, 11.0f, -26.0f,
+-2.0f, 6.0f, 11.0f, 2.0f, 7.0f,
+0.0f, 0.0f, 12.0f, 1.0f, 0.0f,
+-2.0f, 0.0f, 11.0f, 2.0f, 0.0f,
+8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
+6.0f, 0.0f, 5.0f, 8.0f, -15.0f,
+4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+6.0f, 0.0f, 2.0f, 8.0f, -10.0f,
+8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
+4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+6.0f, 6.0f, 5.0f, -2.0f, 7.0f,
+4.0f, 6.0f, 4.0f, -3.0f, 7.0f,
+4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+6.0f, 0.0f, 5.0f, -2.0f, -0.0f,
+-2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
+-2.0f, 0.0f, 11.0f, 15.0f, 0.0f,
+-4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
+-4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
+-4.0f, 6.0f, 13.0f, 17.0f, 8.0f,
+-4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+-4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+-2.0f, 9.0f, 11.0f, 15.0f, 11.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+1.0f, 10.0f, 7.0f, 12.0f, 13.0f,
+3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
+3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
+5.0f, 9.0f, 4.0f, 10.0f, 11.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+6.0f, 6.0f, 2.0f, 8.0f, 8.0f,
+6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
+6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
+4.0f, 0.0f, 4.0f, 10.0f, -0.0f,
+4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
+4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+-2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
+-4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
+-4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+-1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
+-2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
+-4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
+4.0f, 7.0f, 5.0f, 10.0f, 8.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+4.0f, 7.0f, 5.0f, 10.0f, 8.0f,
+3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
+-1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
+-4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+-0.0f, 8.0f, 9.0f, 14.0f, 10.0f,
+-1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
+1.0f, 8.0f, 7.0f, 13.0f, 10.0f,
+-0.0f, 8.0f, 9.0f, 14.0f, 10.0f,
+-1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+-2.0f, 6.0f, 11.0f, 2.0f, -13.0f,
+-1.0f, 7.0f, 10.0f, 2.0f, -11.0f,
+1.0f, 7.0f, 11.0f, 1.0f, -11.0f,
+-0.0f, 8.0f, 9.0f, 2.0f, -19.0f,
+2.0f, 8.0f, 10.0f, 1.0f, -19.0f,
+1.0f, 7.0f, 11.0f, 1.0f, -21.0f,
+-0.0f, 8.0f, 9.0f, 2.0f, -26.0f,
+1.0f, 8.0f, 7.0f, 2.0f, -24.0f,
+3.0f, 8.0f, 8.0f, 1.0f, -24.0f,
+3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+5.0f, 8.0f, 7.0f, -1.0f, 25.0f,
+3.0f, 8.0f, 8.0f, -1.0f, 27.0f,
+3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+4.0f, 7.0f, 5.0f, -3.0f, 23.0f,
+6.0f, 7.0f, 6.0f, -2.0f, 23.0f,
+4.0f, 7.0f, 5.0f, -3.0f, 20.0f,
+4.0f, 6.0f, 4.0f, -3.0f, 18.0f,
+6.0f, 6.0f, 5.0f, -2.0f, 18.0f,
+6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
+6.0f, 0.0f, 5.0f, -10.0f, -0.0f,
+8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+8.0f, 6.0f, 3.0f, -9.0f, 8.0f,
+8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
+8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
+7.0f, 9.0f, 5.0f, -10.0f, 11.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+3.0f, 10.0f, 8.0f, -13.0f, 13.0f,
+1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
+1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
+-0.0f, 9.0f, 12.0f, -15.0f, 11.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+-2.0f, 6.0f, 14.0f, -17.0f, 8.0f,
+-2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
+-2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
+0.0f, 0.0f, 12.0f, -15.0f, 0.0f,
+0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+-2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
+0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
+8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
+1.0f, 7.0f, 11.0f, -15.0f, 8.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+1.0f, 7.0f, 11.0f, -15.0f, 8.0f,
+2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
+6.0f, 7.0f, 6.0f, -11.0f, 8.0f,
+6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+5.0f, 8.0f, 7.0f, -12.0f, 10.0f,
+6.0f, 7.0f, 6.0f, -11.0f, 8.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+-2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
+3.0f, 8.0f, 8.0f, -13.0f, 10.0f,
+5.0f, 8.0f, 7.0f, -12.0f, 10.0f,
+5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+6.0f, 6.0f, 2.0f, 3.0f, 8.0f,
+8.0f, 6.0f, 3.0f, 2.0f, 8.0f,
+8.0f, 0.0f, 3.0f, 2.0f, -0.0f,
+6.0f, 6.0f, 2.0f, 3.0f, 15.0f,
+6.0f, 7.0f, 2.0f, 3.0f, 16.0f,
+8.0f, 7.0f, 3.0f, 2.0f, 16.0f,
+6.0f, 7.0f, 2.0f, 3.0f, 19.0f,
+5.0f, 9.0f, 4.0f, 3.0f, 22.0f,
+7.0f, 9.0f, 5.0f, 2.0f, 22.0f,
+3.0f, 10.0f, 5.0f, 2.0f, 26.0f,
+5.0f, 10.0f, 6.0f, 1.0f, 26.0f,
+7.0f, 9.0f, 5.0f, 2.0f, 23.0f,
+1.0f, 10.0f, 7.0f, 2.0f, 27.0f,
+3.0f, 10.0f, 8.0f, 1.0f, 27.0f,
+5.0f, 10.0f, 6.0f, 1.0f, 24.0f,
+1.0f, 10.0f, 7.0f, -2.0f, -23.0f,
+-1.0f, 10.0f, 9.0f, -2.0f, -26.0f,
+1.0f, 10.0f, 10.0f, -1.0f, -26.0f,
+-2.0f, 9.0f, 11.0f, -2.0f, -23.0f,
+-0.0f, 9.0f, 12.0f, -1.0f, -23.0f,
+1.0f, 10.0f, 10.0f, -1.0f, -20.0f,
+-2.0f, 9.0f, 11.0f, -2.0f, -14.0f,
+-4.0f, 7.0f, 12.0f, -2.0f, -17.0f,
+-2.0f, 7.0f, 13.0f, -1.0f, -17.0f,
+-4.0f, 6.0f, 13.0f, -2.0f, -8.0f,
+-2.0f, 6.0f, 14.0f, -1.0f, -8.0f,
+-2.0f, 7.0f, 13.0f, -1.0f, -7.0f,
+-4.0f, 0.0f, 13.0f, -2.0f, -0.0f,
+-2.0f, 0.0f, 14.0f, -1.0f, -0.0f,
+-2.0f, 6.0f, 14.0f, -1.0f, 8.0f,
+-4.0f, 0.0f, 13.0f, 12.0f, -25.0f,
+-2.0f, 0.0f, 11.0f, 11.0f, -22.0f,
+0.0f, 0.0f, 12.0f, 10.0f, -23.0f,
+-2.0f, 6.0f, 11.0f, 2.0f, 7.0f,
+0.0f, 6.0f, 12.0f, 1.0f, 7.0f,
+0.0f, 0.0f, 12.0f, 1.0f, 0.0f
+};
+
 float floorVertices[] = {
     -30.0f, -0.5f,  30.0f,  0.0f, 0.0f,
      30.0f, -0.5f,  30.0f,  1.0f, 0.0f,
@@ -887,6 +1130,33 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
+
+    unsigned int arcoVAO, arcoVBO;
+    // Gerar o VAO e o VBO
+    glGenVertexArrays(1, &arcoVAO);
+    glGenBuffers(1, &arcoVBO);
+
+    // Vincular o VAO da placa
+    glBindVertexArray(arcoVAO);
+
+    // Vincular o VBO e carregar os dados dos vértices
+    glBindBuffer(GL_ARRAY_BUFFER, arcoVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(arcoVertices), arcoVertices, GL_STATIC_DRAW);
+
+    // Configurar o atributo de posição (layout location 0)
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    // Configurar o atributo de coordenadas de textura (layout location 1)
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    // Desvincular o VAO e o VBO
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+
+
     unsigned int coneVAO, coneVBO;
 
     // Gerar o VAO e o VBO
@@ -1050,6 +1320,28 @@ int main()
         ourShader.setMat4("model", modelPlaca);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
         glBindVertexArray(0); // Desvincula o VAO
+
+        // Placa2
+        glBindVertexArray(placaVAO); // Certifique-se de ter configurado o VAO da placa
+        glm::mat4 modelPlaca2 = glm::mat4(1.0f); // Matriz identidade
+        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(2.0f, -1.5f, 11.5f)); // Posiciona a placa
+        modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.50f, 0.60f, 0.50f)); // Ajuste o tamanho se necessário
+        modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
+        ourShader.setMat4("model", modelPlaca2);
+        glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
+        glBindVertexArray(0); // Desvincula o VAO
+
+
+        // Arco
+        glBindVertexArray(arcoVAO); // Certifique-se de ter configurado o VAO da placa
+        glm::mat4 modelArco = glm::mat4(1.0f); // Matriz identidade
+        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 11.5f)); // Posiciona a placa
+        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.50f)); // Ajuste o tamanho se necessário
+        modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
+        ourShader.setMat4("model", modelArco);
+        glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
+        glBindVertexArray(0); // Desvincula o VAO
+
 
         // Chão
         glBindVertexArray(floorVAO);
