@@ -681,7 +681,7 @@ glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
-float velocidadeCarro = 0.05f;
+float velocidadeCarro = 0.1f;
 float carroRotacao = 90.0f;                 // Rotação inicial
 
 bool isPointInsidePolygon(const glm::vec2& point, const std::vector<glm::vec2>& polygon) {
@@ -713,6 +713,69 @@ bool isCarInsideTrack(const glm::vec2& carPosition,
     // - Dentro do polígono externo
     return isPointInsidePolygon(carPosition, outerTrack) &&
            !isPointInsidePolygon(carPosition, innerTrack);
+}
+
+glm::vec2 closestPointOnSegment(glm::vec2 point, glm::vec2 segmentStart, glm::vec2 segmentEnd) {
+    // Vetor do segmento
+    glm::vec2 segment = segmentEnd - segmentStart;
+
+    // Projeta o ponto no segmento
+    float t = glm::dot(point - segmentStart, segment) / glm::dot(segment, segment);
+
+    // Clampa t entre 0 e 1 para garantir que a projeção esteja dentro do segmento
+    t = glm::clamp(t, 0.0f, 1.0f);
+
+    // Calcula o ponto mais próximo no segmento
+    return segmentStart + t * segment;
+}
+
+glm::vec2 projectCarOnTrack(glm::vec2 carroPosicao, const std::vector<glm::vec2>& track) {
+    glm::vec2 projection;
+    float minDistance = std::numeric_limits<float>::max();
+
+    // Percorre os pontos da pista
+    for (size_t i = 0; i < track.size() - 1; ++i) {
+        // Segmento atual da pista
+        glm::vec2 p1 = track[i];
+        glm::vec2 p2 = track[i + 1];
+
+        // Vetor do segmento
+        glm::vec2 segment = p2 - p1;
+
+        // Projeta a posição do carro no segmento da pista
+        float t = glm::dot(carroPosicao - p1, segment) / glm::dot(segment, segment);
+        t = glm::clamp(t, 0.0f, 1.0f);
+
+        glm::vec2 projectedPoint = p1 + t * segment;
+
+        // Calcula a distância ao ponto projetado
+        float distance = glm::length(projectedPoint - carroPosicao);
+
+        // Atualiza se a distância for menor
+        if (distance < minDistance) {
+            minDistance = distance;
+            projection = projectedPoint;
+        }
+    }
+
+    return projection;
+}
+
+glm::vec2 correctCarPosition(glm::vec2 carroPosicao, const std::vector<glm::vec2>& innerTrack, const std::vector<glm::vec2>& outerTrack) {
+    // Projeta o carro na pista interna e externa
+    glm::vec2 posicaoInner = projectCarOnTrack(carroPosicao, innerTrack);
+    glm::vec2 posicaoOuter = projectCarOnTrack(carroPosicao, outerTrack);
+
+    // Calcula os vetores de diferença
+    glm::vec2 vectorToInner = posicaoInner - carroPosicao;
+    glm::vec2 vectorToOuter = posicaoOuter - carroPosicao;
+
+    // Verifica qual vetor é menor e usa isso para corrigir a posição
+    if (glm::length(vectorToInner) < glm::length(vectorToOuter)) {
+        return posicaoInner;
+    } else {
+        return posicaoOuter;
+    }
 }
 
 int main()
@@ -949,6 +1012,12 @@ int main()
         model = glm::translate(model, carroPosicao); // Translada para nova posição
         model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
         model = glm::rotate(model, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotação inicial do carro 
+        glm::vec2 carroPosicao2 = glm::vec2(carroPosicao.x, carroPosicao.z);
+
+        if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack)) {   
+            glm::vec2 carroPosicaoAjustado = correctCarPosition(carroPosicao, innerTrack, outerTrack);
+            carroPosicao = glm::mix(carroPosicao, glm::vec3(carroPosicaoAjustado.x, -1.5f, carroPosicaoAjustado.y), 0.1f);
+        }
 
         std::cout << "Posição: " << carroPosicao.x << " | " << carroPosicao.z;
         std::cout << "\nRotação: " << carroRotacao << " graus" << std::endl << "\n";
@@ -1011,8 +1080,6 @@ int main()
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window)
 {
-    glm::vec2 carPosition = glm::vec2(carroPosicao.x, carroPosicao.z);
-
     // Rotação do carro
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
         carroRotacao += 2.0f; // Rotaciona para a esquerda
@@ -1027,15 +1094,13 @@ void processInput(GLFWwindow *window)
     // Direção do movimento baseado na rotação
     glm::vec3 direcaoFrente = glm::vec3( sin(anguloRad), 0.0f,cos(anguloRad));
 
-    if (isCarInsideTrack(carPosition, innerTrack, outerTrack)) {
-        // Movimentação para frente ou para trás
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-            carroPosicao += velocidadeCarro * direcaoFrente;
-        }
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-            carroPosicao -= velocidadeCarro * direcaoFrente;
-        }       
+    // Movimentação para frente ou para trás
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        carroPosicao += velocidadeCarro * direcaoFrente;
     }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        carroPosicao -= velocidadeCarro * direcaoFrente;
+    }   
 
     // Normaliza a rotação para mantê-la dentro do intervalo [0, 360)
     if (carroRotacao >= 360.0f) carroRotacao -= 360.0f;
