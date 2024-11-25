@@ -1016,7 +1016,7 @@ int main()
 
         if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack)) {   
             glm::vec2 carroPosicaoAjustado = correctCarPosition(carroPosicao, innerTrack, outerTrack);
-            carroPosicao = glm::mix(carroPosicao, glm::vec3(carroPosicaoAjustado.x, -1.5f, carroPosicaoAjustado.y), 0.1f);
+            carroPosicao = glm::mix(carroPosicao, glm::vec3(carroPosicaoAjustado.x, -1.5f, carroPosicaoAjustado.y), 0.05f);
         }
 
         std::cout << "Posição: " << carroPosicao.x << " | " << carroPosicao.z;
