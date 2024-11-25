@@ -10,85 +10,85 @@
 #include <Shader.h>
 #include <iostream>
 
-std::vector<glm::vec2> innerTrack = {
-    glm::vec2(-21.895924f,  4.255136f),
-    glm::vec2(-23.444775f,  2.930795f),
-    glm::vec2(-24.072124f,  0.041898f),
-    glm::vec2(-24.004322f,  1.687562f),
-    glm::vec2(-0.158652f,   4.255136f),
-    glm::vec2( 21.578621f,  4.255136f),
-    glm::vec2( 23.606468f,  3.176087f),
-    glm::vec2( 24.345722f,  0.041898f),
-    glm::vec2( 24.155762f,  1.687562f),
-    glm::vec2(-21.895924f, -4.306566f),
-    glm::vec2(-23.444775f, -3.092296f),
-    glm::vec2(-24.004322f, -1.603768f),
-    glm::vec2(-0.158652f , -4.306566f),
-    glm::vec2( 21.578621f, -4.306566f),
-    glm::vec2( 23.606468f, -3.092296f),
-    glm::vec2( 24.155762f, -1.603768f)
-};
+// std::vector<glm::vec2> innerTrack = {
+//     glm::vec2(-21.895924f,  4.255136f),
+//     glm::vec2(-23.444775f,  2.930795f),
+//     glm::vec2(-24.072124f,  0.041898f),
+//     glm::vec2(-24.004322f,  1.687562f),
+//     glm::vec2(-0.158652f,   4.255136f),
+//     glm::vec2( 21.578621f,  4.255136f),
+//     glm::vec2( 23.606468f,  3.176087f),
+//     glm::vec2( 24.345722f,  0.041898f),
+//     glm::vec2( 24.155762f,  1.687562f),
+//     glm::vec2(-21.895924f, -4.306566f),
+//     glm::vec2(-23.444775f, -3.092296f),
+//     glm::vec2(-24.004322f, -1.603768f),
+//     glm::vec2(-0.158652f , -4.306566f),
+//     glm::vec2( 21.578621f, -4.306566f),
+//     glm::vec2( 23.606468f, -3.092296f),
+//     glm::vec2( 24.155762f, -1.603768f)
+// };
 
-std::vector<glm::vec2> outerTrack = {
-    glm::vec2(-26.710827f, -0.027053f),
-    glm::vec2(-23.845669f,  1.618612f),
-    glm::vec2(-21.737272f, -10.136620f),
-    glm::vec2( 23.765121f, -10.157049f),
-    glm::vec2(-21.737272f,  4.186187f),
-    glm::vec2(-23.286123f,  2.861845f),
-    glm::vec2(-23.913471f, -0.027053f),
-    glm::vec2(-23.845669f,  1.618612f),
-    glm::vec2( 0.000000f ,  4.186187f),
-    glm::vec2( 21.737272f,  4.186187f),
-    glm::vec2( 23.765121f,  3.107139f),
-    glm::vec2( 24.504374f, -0.027053f),
-    glm::vec2( 24.314415f,  1.618612f),
-    glm::vec2(-21.737272f, -4.375515f),
-    glm::vec2(-23.286123f, -3.161244f),
-    glm::vec2(-23.845669f, -1.672718f),
-    glm::vec2( 0.000000f , -4.375515f),
-    glm::vec2( 21.737272f, -4.375515f),
-    glm::vec2( 23.765121f, -3.161244f),
-    glm::vec2( 24.314415f, -1.672718f),
-    glm::vec2( 28.283169f,  27.498846f),
-    glm::vec2( 25.867556f,  32.462799f),
-    glm::vec2( 24.659750f,  33.336132f),
-    glm::vec2( 23.451944f,  13.393888f),
-    glm::vec2( 24.659750f,  13.711636f),
-    glm::vec2( 27.679266f,  17.401869f),
-    glm::vec2(-28.594751f,  3.974433f),
-    glm::vec2(-28.915689f, -0.000528f),
-    glm::vec2(-21.735682f,  10.109038f),
-    glm::vec2(-23.763529f,  10.129468f),
-    glm::vec2(-26.179140f,  8.938385f),
-    glm::vec2(-27.386946f,  7.423243f),
-    glm::vec2(-24.971334f,  9.811720f),
-    glm::vec2(-27.990850f,  6.121488f),
-    glm::vec2( 0.001592f ,  10.109038f),
-    glm::vec2( 28.597937f,  3.974433f),
-    glm::vec2( 28.918875f, -0.000528f),
-    glm::vec2( 21.738867f,  10.109038f),
-    glm::vec2( 23.766714f,  10.129468f),
-    glm::vec2( 26.182325f,  8.938385f),
-    glm::vec2( 27.390135f,  7.423243f),
-    glm::vec2( 24.974516f,  9.811720f),
-    glm::vec2( 27.994032f,  6.121488f),
-    glm::vec2(-28.594751f, -3.975490f),
-    glm::vec2(-21.735682f, -10.110096f),
-    glm::vec2(-23.763529f, -10.130526f),
-    glm::vec2(-26.179140f, -8.939442f),
-    glm::vec2(-27.386946f, -7.424301f),
-    glm::vec2(-24.971334f, -9.812778f),
-    glm::vec2(-27.990850f, -6.122545f),
-    glm::vec2( 0.001592f ,  -10.110096f),
-    glm::vec2( 28.597937f,  -3.975490f),
-    glm::vec2( 21.738867f,  -10.110096f),
-    glm::vec2( 23.766714f,  -10.130526f),
-    glm::vec2( 26.182325f,  -8.939442f),
-    glm::vec2( 27.390135f,  -7.424301f),
-    glm::vec2( 24.974516f,  -9.812778f),
-    glm::vec2( 27.994032f,  -6.122545f)
-};
+// std::vector<glm::vec2> outerTrack = {
+//     glm::vec2(-26.710827f, -0.027053f),
+//     glm::vec2(-23.845669f,  1.618612f),
+//     glm::vec2(-21.737272f, -10.136620f),
+//     glm::vec2( 23.765121f, -10.157049f),
+//     glm::vec2(-21.737272f,  4.186187f),
+//     glm::vec2(-23.286123f,  2.861845f),
+//     glm::vec2(-23.913471f, -0.027053f),
+//     glm::vec2(-23.845669f,  1.618612f),
+//     glm::vec2( 0.000000f ,  4.186187f),
+//     glm::vec2( 21.737272f,  4.186187f),
+//     glm::vec2( 23.765121f,  3.107139f),
+//     glm::vec2( 24.504374f, -0.027053f),
+//     glm::vec2( 24.314415f,  1.618612f),
+//     glm::vec2(-21.737272f, -4.375515f),
+//     glm::vec2(-23.286123f, -3.161244f),
+//     glm::vec2(-23.845669f, -1.672718f),
+//     glm::vec2( 0.000000f , -4.375515f),
+//     glm::vec2( 21.737272f, -4.375515f),
+//     glm::vec2( 23.765121f, -3.161244f),
+//     glm::vec2( 24.314415f, -1.672718f),
+//     glm::vec2( 28.283169f,  27.498846f),
+//     glm::vec2( 25.867556f,  32.462799f),
+//     glm::vec2( 24.659750f,  33.336132f),
+//     glm::vec2( 23.451944f,  13.393888f),
+//     glm::vec2( 24.659750f,  13.711636f),
+//     glm::vec2( 27.679266f,  17.401869f),
+//     glm::vec2(-28.594751f,  3.974433f),
+//     glm::vec2(-28.915689f, -0.000528f),
+//     glm::vec2(-21.735682f,  10.109038f),
+//     glm::vec2(-23.763529f,  10.129468f),
+//     glm::vec2(-26.179140f,  8.938385f),
+//     glm::vec2(-27.386946f,  7.423243f),
+//     glm::vec2(-24.971334f,  9.811720f),
+//     glm::vec2(-27.990850f,  6.121488f),
+//     glm::vec2( 0.001592f ,  10.109038f),
+//     glm::vec2( 28.597937f,  3.974433f),
+//     glm::vec2( 28.918875f, -0.000528f),
+//     glm::vec2( 21.738867f,  10.109038f),
+//     glm::vec2( 23.766714f,  10.129468f),
+//     glm::vec2( 26.182325f,  8.938385f),
+//     glm::vec2( 27.390135f,  7.423243f),
+//     glm::vec2( 24.974516f,  9.811720f),
+//     glm::vec2( 27.994032f,  6.121488f),
+//     glm::vec2(-28.594751f, -3.975490f),
+//     glm::vec2(-21.735682f, -10.110096f),
+//     glm::vec2(-23.763529f, -10.130526f),
+//     glm::vec2(-26.179140f, -8.939442f),
+//     glm::vec2(-27.386946f, -7.424301f),
+//     glm::vec2(-24.971334f, -9.812778f),
+//     glm::vec2(-27.990850f, -6.122545f),
+//     glm::vec2( 0.001592f ,  -10.110096f),
+//     glm::vec2( 28.597937f,  -3.975490f),
+//     glm::vec2( 21.738867f,  -10.110096f),
+//     glm::vec2( 23.766714f,  -10.130526f),
+//     glm::vec2( 26.182325f,  -8.939442f),
+//     glm::vec2( 27.390135f,  -7.424301f),
+//     glm::vec2( 24.974516f,  -9.812778f),
+//     glm::vec2( 27.994032f,  -6.122545f)
+// };
 
 float carroVertices[] = {
     1.3f, 1.0f, -0.5f, 0.875f, 0.5f,
@@ -1152,6 +1152,24 @@ float floorVertices[] = {
     -30.0f, -0.5f,  30.0f,  0.0f, 0.0f
 };
 
+std::vector<glm::vec2> innerTrack = {
+    glm::vec2(-23.0f,  3.0f),
+    glm::vec2( 23.0f,  3.0f),
+    glm::vec2( 23.0f, -3.0f),
+    glm::vec2( 23.0f, -3.0f),
+    glm::vec2(-23.0f, -3.0f),
+    glm::vec2(-23.0f,  3.0f)
+};
+
+std::vector<glm::vec2> outerTrack = {
+    glm::vec2(-28.0f,  10.0f),
+    glm::vec2( 28.0f,  10.0f),
+    glm::vec2( 28.0f, -10.0f),
+    glm::vec2( 28.0f, -10.0f),
+    glm::vec2(-28.0f, -10.0f),
+    glm::vec2(-28.0f,  10.0f)
+};
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
 
@@ -1165,7 +1183,7 @@ glm::vec3 cameraPos = glm::vec3(-45.0f, 2.0f, 45.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-glm::vec3 carroPosicao(-3.0f, -1.5f, 3.0f); // Origem
+glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
 float velocidadeCarro = 0.05f;
 float carroRotacao = 90.0f;                 // Rotação inicial
 
@@ -1448,20 +1466,11 @@ int main()
         // Matrizes de transformação
         glm::mat4 model = glm::mat4(1.0f); // Inicialize a matriz modelo como identidade
         model = glm::translate(model, carroPosicao); // Translada para nova posição
-        model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f));
+        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
         model = glm::rotate(model, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotação inicial do carro 
 
         std::cout << "Posição: " << carroPosicao.x << " | " << carroPosicao.z;
         std::cout << "\nRotação: " << carroRotacao << " graus" << std::endl << "\n";
-
-        glm::vec2 carPosition = glm::vec2(carroPosicao.x, carroPosicao.z);
-
-        if (!isCarInsideTrack(carPosition, innerTrack, outerTrack)) {
-            std::cout << "Carro fora da pista!" << std::endl;
-            // Corrija a posição ou impeça o movimento
-            // carroPosicao.x -= direction.x * velocidadeCarro; // Exemplo de correção
-            // carroPosicao.z -= direction.y * velocidadeCarro;
-        }
 
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
         view = glm::rotate(view, glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 1.0f)); // Rotação em torno do eixo X
@@ -1482,25 +1491,22 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 1000);
         glBindVertexArray(0); // Desvincular o VAO
 
-        // Renderizar a placa
+        // Placa
         glBindVertexArray(placaVAO); // Certifique-se de ter configurado o VAO da placa
-
-        // Crie a matriz de transformação para a placa
         glm::mat4 modelPlaca = glm::mat4(1.0f); // Matriz identidade
-        modelPlaca = glm::translate(modelPlaca, glm::vec3(-2.0f, -1.5f, 4.0f)); // Posiciona a placa
-        modelPlaca = glm::scale(modelPlaca, glm::vec3(0.30f, 0.30f, 0.30f)); // Ajuste o tamanho se necessário
+        modelPlaca = glm::translate(modelPlaca, glm::vec3(-4.0f, -1.5f, 11.5f)); // Posiciona a placa
+        modelPlaca = glm::scale(modelPlaca, glm::vec3(0.50f, 0.60f, 0.50f)); // Ajuste o tamanho se necessário
         modelPlaca = glm::rotate(modelPlaca, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
         ourShader.setMat4("model", modelPlaca);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
         glBindVertexArray(0); // Desvincula o VAO
 
-        // Renderizar o chão
+        // Chão
         glBindVertexArray(floorVAO);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2); // Use a mesma textura do cubo
         glm::mat4 modelFloor = glm::mat4(1.0f);
         modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f));  // Desloca o chão para baixo
-        // modelFloor = glm::scale(modelFloor, glm::vec3(2.0f, 1.0f, 2.0f));
         ourShader.setMat4("model", modelFloor);
         glBindVertexArray(floorVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -1524,6 +1530,8 @@ int main()
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window)
 {
+    glm::vec2 carPosition = glm::vec2(carroPosicao.x, carroPosicao.z);
+
     // Rotação do carro
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
         carroRotacao += 2.0f; // Rotaciona para a esquerda
@@ -1538,12 +1546,14 @@ void processInput(GLFWwindow *window)
     // Direção do movimento baseado na rotação
     glm::vec3 direcaoFrente = glm::vec3( sin(anguloRad), 0.0f,cos(anguloRad));
 
-    // Movimentação para frente ou para trás
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-        carroPosicao += velocidadeCarro * direcaoFrente;
-    }
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-        carroPosicao -= velocidadeCarro * direcaoFrente;
+    if (isCarInsideTrack(carPosition, innerTrack, outerTrack)) {
+        // Movimentação para frente ou para trás
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+            carroPosicao += velocidadeCarro * direcaoFrente;
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+            carroPosicao -= velocidadeCarro * direcaoFrente;
+        }       
     }
 
     // Normaliza a rotação para mantê-la dentro do intervalo [0, 360)
