@@ -1227,9 +1227,9 @@ int main()
         // Placa2
         glBindVertexArray(placaVAO);                                                              // Certifique-se de ter configurado o VAO da placa
         glm::mat4 modelPlaca2 = glm::mat4(1.0f);                                                  // Matriz identidade
-        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(2.0f, -1.5f, 11.5f));                 // Posiciona a placa
+        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(-4.0f, -1.5f, -11.5f));                 // Posiciona a placa
         modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
-        modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
+        modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
         ourShader.setMat4("model", modelPlaca2);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
         glBindVertexArray(0);                // Desvincula o VAO
@@ -1237,8 +1237,8 @@ int main()
         // Arco
         glBindVertexArray(arcoVAO);                                                           // Certifique-se de ter configurado o VAO da placa
         glm::mat4 modelArco = glm::mat4(1.0f);                                                // Matriz identidade
-        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 11.5f));                 // Posiciona a placa
-        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
+        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 13.0f));                 // Posiciona a placa
+        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.70f));                    // Ajuste o tamanho se necessário
         modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
         ourShader.setMat4("model", modelArco);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
