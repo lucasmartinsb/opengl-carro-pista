@@ -226,8 +226,7 @@ float carroVertices[] = {
     2.5f, 1.0f, 1.0f, 0.375f, 0.75f,
     -2.5f, 3.0f, -7.0f, 0.625f, 0.25f,
     2.5f, 3.0f, -7.0f, 0.625f, 0.5f,
-    2.5f, 0.999999f, -7.0f, 0.375f, 0.5f
-};
+    2.5f, 0.999999f, -7.0f, 0.375f, 0.5f};
 
 float placaVertices[] = {
     0.0f, 5.47798f, -0.11137f, 1.0f, 1.0f,
@@ -637,280 +636,275 @@ float placaVertices[] = {
     -1.05782f, 3.78637f, -0.08984f, 0.125f, 0.75f,
     1.05782f, 3.78637f, -0.31016f, 0.875f, 0.5f,
     -1.05782f, 3.78637f, -0.31016f, 0.875f, 0.75f,
-    -1.05782f, 5.90201f, -0.31016f, 0.625f, 0.75f
-};
+    -1.05782f, 5.90201f, -0.31016f, 0.625f, 0.75f};
 
 float arcoVertices[] = {
-4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
-4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
-4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
-4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
-6.0f, 0.0f, 2.0f, 8.0f, -10.0f,
-8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
-4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
-6.0f, 0.0f, 5.0f, -2.0f, -0.0f,
-6.0f, 6.0f, 5.0f, -2.0f, 7.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
-3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
-1.0f, 8.0f, 7.0f, 13.0f, 10.0f,
--2.0f, 6.0f, 11.0f, 2.0f, -13.0f,
-1.0f, 7.0f, 11.0f, 1.0f, -11.0f,
-0.0f, 6.0f, 12.0f, 1.0f, -13.0f,
--0.0f, 8.0f, 9.0f, 2.0f, -19.0f,
-1.0f, 7.0f, 11.0f, 1.0f, -21.0f,
--1.0f, 7.0f, 10.0f, 2.0f, -21.0f,
--0.0f, 8.0f, 9.0f, 2.0f, -26.0f,
-3.0f, 8.0f, 8.0f, 1.0f, -24.0f,
-2.0f, 8.0f, 10.0f, 1.0f, -26.0f,
-3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
-3.0f, 8.0f, 8.0f, -1.0f, 27.0f,
-1.0f, 8.0f, 7.0f, -2.0f, 27.0f,
-3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
-6.0f, 7.0f, 6.0f, -2.0f, 23.0f,
-5.0f, 8.0f, 7.0f, -1.0f, 25.0f,
-4.0f, 7.0f, 5.0f, -3.0f, 20.0f,
-6.0f, 6.0f, 5.0f, -2.0f, 18.0f,
-6.0f, 7.0f, 6.0f, -2.0f, 20.0f,
-2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
-3.0f, 8.0f, 8.0f, -13.0f, 10.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-6.0f, 6.0f, 2.0f, 3.0f, 8.0f,
-8.0f, 0.0f, 3.0f, 2.0f, -0.0f,
-6.0f, 0.0f, 2.0f, 3.0f, -0.0f,
-6.0f, 6.0f, 2.0f, 3.0f, 15.0f,
-8.0f, 7.0f, 3.0f, 2.0f, 16.0f,
-8.0f, 6.0f, 3.0f, 2.0f, 15.0f,
-6.0f, 7.0f, 2.0f, 3.0f, 19.0f,
-7.0f, 9.0f, 5.0f, 2.0f, 22.0f,
-8.0f, 7.0f, 3.0f, 2.0f, 19.0f,
-3.0f, 10.0f, 5.0f, 2.0f, 26.0f,
-7.0f, 9.0f, 5.0f, 2.0f, 23.0f,
-5.0f, 9.0f, 4.0f, 3.0f, 23.0f,
-1.0f, 10.0f, 7.0f, 2.0f, 27.0f,
-5.0f, 10.0f, 6.0f, 1.0f, 24.0f,
-3.0f, 10.0f, 5.0f, 2.0f, 24.0f,
-1.0f, 10.0f, 7.0f, -2.0f, -23.0f,
-1.0f, 10.0f, 10.0f, -1.0f, -26.0f,
-3.0f, 10.0f, 8.0f, -1.0f, -23.0f,
--2.0f, 9.0f, 11.0f, -2.0f, -23.0f,
-1.0f, 10.0f, 10.0f, -1.0f, -20.0f,
--1.0f, 10.0f, 9.0f, -2.0f, -20.0f,
--2.0f, 9.0f, 11.0f, -2.0f, -14.0f,
--2.0f, 7.0f, 13.0f, -1.0f, -17.0f,
--0.0f, 9.0f, 12.0f, -1.0f, -14.0f,
--4.0f, 6.0f, 13.0f, -2.0f, -8.0f,
--2.0f, 7.0f, 13.0f, -1.0f, -7.0f,
--4.0f, 7.0f, 12.0f, -2.0f, -7.0f,
--4.0f, 0.0f, 13.0f, -2.0f, -0.0f,
--2.0f, 6.0f, 14.0f, -1.0f, 8.0f,
--4.0f, 6.0f, 13.0f, -2.0f, 8.0f,
--4.0f, 0.0f, 13.0f, 12.0f, -25.0f,
-0.0f, 0.0f, 12.0f, 10.0f, -23.0f,
--2.0f, 0.0f, 14.0f, 11.0f, -26.0f,
--2.0f, 6.0f, 11.0f, 2.0f, 7.0f,
-0.0f, 0.0f, 12.0f, 1.0f, 0.0f,
--2.0f, 0.0f, 11.0f, 2.0f, 0.0f,
-8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
-6.0f, 0.0f, 5.0f, 8.0f, -15.0f,
-4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
-4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
-4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
-6.0f, 0.0f, 2.0f, 8.0f, -10.0f,
-8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
-4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
-4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
-6.0f, 6.0f, 5.0f, -2.0f, 7.0f,
-4.0f, 6.0f, 4.0f, -3.0f, 7.0f,
-4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
-4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
-4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
-6.0f, 0.0f, 5.0f, -2.0f, -0.0f,
--2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
--2.0f, 0.0f, 11.0f, 15.0f, 0.0f,
--4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
--4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
--4.0f, 6.0f, 13.0f, 17.0f, 8.0f,
--4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
--4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
--2.0f, 9.0f, 11.0f, 15.0f, 11.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
-1.0f, 10.0f, 7.0f, 12.0f, 13.0f,
-3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
-3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
-5.0f, 9.0f, 4.0f, 10.0f, 11.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
-6.0f, 6.0f, 2.0f, 8.0f, 8.0f,
-6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
-6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
-4.0f, 0.0f, 4.0f, 10.0f, -0.0f,
-4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
-6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
-4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
-3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
--2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
--4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
--4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
--1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
--2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
--4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
-4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
-4.0f, 7.0f, 5.0f, 10.0f, 8.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
-4.0f, 7.0f, 5.0f, 10.0f, 8.0f,
-3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
--1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
--4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
--0.0f, 8.0f, 9.0f, 14.0f, 10.0f,
--1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
-6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
-3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
-1.0f, 8.0f, 7.0f, 13.0f, 10.0f,
--0.0f, 8.0f, 9.0f, 14.0f, 10.0f,
--1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
--2.0f, 6.0f, 11.0f, 2.0f, -13.0f,
--1.0f, 7.0f, 10.0f, 2.0f, -11.0f,
-1.0f, 7.0f, 11.0f, 1.0f, -11.0f,
--0.0f, 8.0f, 9.0f, 2.0f, -19.0f,
-2.0f, 8.0f, 10.0f, 1.0f, -19.0f,
-1.0f, 7.0f, 11.0f, 1.0f, -21.0f,
--0.0f, 8.0f, 9.0f, 2.0f, -26.0f,
-1.0f, 8.0f, 7.0f, 2.0f, -24.0f,
-3.0f, 8.0f, 8.0f, 1.0f, -24.0f,
-3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
-5.0f, 8.0f, 7.0f, -1.0f, 25.0f,
-3.0f, 8.0f, 8.0f, -1.0f, 27.0f,
-3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
-4.0f, 7.0f, 5.0f, -3.0f, 23.0f,
-6.0f, 7.0f, 6.0f, -2.0f, 23.0f,
-4.0f, 7.0f, 5.0f, -3.0f, 20.0f,
-4.0f, 6.0f, 4.0f, -3.0f, 18.0f,
-6.0f, 6.0f, 5.0f, -2.0f, 18.0f,
-6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
-6.0f, 0.0f, 5.0f, -10.0f, -0.0f,
-8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
-8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
-8.0f, 6.0f, 3.0f, -9.0f, 8.0f,
-8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
-8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
-7.0f, 9.0f, 5.0f, -10.0f, 11.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-3.0f, 10.0f, 8.0f, -13.0f, 13.0f,
-1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
-1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
--0.0f, 9.0f, 12.0f, -15.0f, 11.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
--2.0f, 6.0f, 14.0f, -17.0f, 8.0f,
--2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
--2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
-0.0f, 0.0f, 12.0f, -15.0f, 0.0f,
-0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
--2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
-0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
-8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
-8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
-8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
-0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
-1.0f, 7.0f, 11.0f, -15.0f, 8.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
-1.0f, 7.0f, 11.0f, -15.0f, 8.0f,
-2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
-6.0f, 7.0f, 6.0f, -11.0f, 8.0f,
-6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-5.0f, 8.0f, 7.0f, -12.0f, 10.0f,
-6.0f, 7.0f, 6.0f, -11.0f, 8.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
--2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
-2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
-3.0f, 8.0f, 8.0f, -13.0f, 10.0f,
-5.0f, 8.0f, 7.0f, -12.0f, 10.0f,
-5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
-6.0f, 6.0f, 2.0f, 3.0f, 8.0f,
-8.0f, 6.0f, 3.0f, 2.0f, 8.0f,
-8.0f, 0.0f, 3.0f, 2.0f, -0.0f,
-6.0f, 6.0f, 2.0f, 3.0f, 15.0f,
-6.0f, 7.0f, 2.0f, 3.0f, 16.0f,
-8.0f, 7.0f, 3.0f, 2.0f, 16.0f,
-6.0f, 7.0f, 2.0f, 3.0f, 19.0f,
-5.0f, 9.0f, 4.0f, 3.0f, 22.0f,
-7.0f, 9.0f, 5.0f, 2.0f, 22.0f,
-3.0f, 10.0f, 5.0f, 2.0f, 26.0f,
-5.0f, 10.0f, 6.0f, 1.0f, 26.0f,
-7.0f, 9.0f, 5.0f, 2.0f, 23.0f,
-1.0f, 10.0f, 7.0f, 2.0f, 27.0f,
-3.0f, 10.0f, 8.0f, 1.0f, 27.0f,
-5.0f, 10.0f, 6.0f, 1.0f, 24.0f,
-1.0f, 10.0f, 7.0f, -2.0f, -23.0f,
--1.0f, 10.0f, 9.0f, -2.0f, -26.0f,
-1.0f, 10.0f, 10.0f, -1.0f, -26.0f,
--2.0f, 9.0f, 11.0f, -2.0f, -23.0f,
--0.0f, 9.0f, 12.0f, -1.0f, -23.0f,
-1.0f, 10.0f, 10.0f, -1.0f, -20.0f,
--2.0f, 9.0f, 11.0f, -2.0f, -14.0f,
--4.0f, 7.0f, 12.0f, -2.0f, -17.0f,
--2.0f, 7.0f, 13.0f, -1.0f, -17.0f,
--4.0f, 6.0f, 13.0f, -2.0f, -8.0f,
--2.0f, 6.0f, 14.0f, -1.0f, -8.0f,
--2.0f, 7.0f, 13.0f, -1.0f, -7.0f,
--4.0f, 0.0f, 13.0f, -2.0f, -0.0f,
--2.0f, 0.0f, 14.0f, -1.0f, -0.0f,
--2.0f, 6.0f, 14.0f, -1.0f, 8.0f,
--4.0f, 0.0f, 13.0f, 12.0f, -25.0f,
--2.0f, 0.0f, 11.0f, 11.0f, -22.0f,
-0.0f, 0.0f, 12.0f, 10.0f, -23.0f,
--2.0f, 6.0f, 11.0f, 2.0f, 7.0f,
-0.0f, 6.0f, 12.0f, 1.0f, 7.0f,
-0.0f, 0.0f, 12.0f, 1.0f, 0.0f
-};
+    4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
+    4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
+    4.0f, 0.0f, 4.0f, -8.0f, -13.0f,
+    4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+    6.0f, 0.0f, 2.0f, 8.0f, -10.0f,
+    8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
+    4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+    6.0f, 0.0f, 5.0f, -2.0f, -0.0f,
+    6.0f, 6.0f, 5.0f, -2.0f, 7.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
+    1.0f, 8.0f, 7.0f, 13.0f, 10.0f,
+    -2.0f, 6.0f, 11.0f, 2.0f, -13.0f,
+    1.0f, 7.0f, 11.0f, 1.0f, -11.0f,
+    0.0f, 6.0f, 12.0f, 1.0f, -13.0f,
+    -0.0f, 8.0f, 9.0f, 2.0f, -19.0f,
+    1.0f, 7.0f, 11.0f, 1.0f, -21.0f,
+    -1.0f, 7.0f, 10.0f, 2.0f, -21.0f,
+    -0.0f, 8.0f, 9.0f, 2.0f, -26.0f,
+    3.0f, 8.0f, 8.0f, 1.0f, -24.0f,
+    2.0f, 8.0f, 10.0f, 1.0f, -26.0f,
+    3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+    3.0f, 8.0f, 8.0f, -1.0f, 27.0f,
+    1.0f, 8.0f, 7.0f, -2.0f, 27.0f,
+    3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+    6.0f, 7.0f, 6.0f, -2.0f, 23.0f,
+    5.0f, 8.0f, 7.0f, -1.0f, 25.0f,
+    4.0f, 7.0f, 5.0f, -3.0f, 20.0f,
+    6.0f, 6.0f, 5.0f, -2.0f, 18.0f,
+    6.0f, 7.0f, 6.0f, -2.0f, 20.0f,
+    2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
+    3.0f, 8.0f, 8.0f, -13.0f, 10.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    6.0f, 6.0f, 2.0f, 3.0f, 8.0f,
+    8.0f, 0.0f, 3.0f, 2.0f, -0.0f,
+    6.0f, 0.0f, 2.0f, 3.0f, -0.0f,
+    6.0f, 6.0f, 2.0f, 3.0f, 15.0f,
+    8.0f, 7.0f, 3.0f, 2.0f, 16.0f,
+    8.0f, 6.0f, 3.0f, 2.0f, 15.0f,
+    6.0f, 7.0f, 2.0f, 3.0f, 19.0f,
+    7.0f, 9.0f, 5.0f, 2.0f, 22.0f,
+    8.0f, 7.0f, 3.0f, 2.0f, 19.0f,
+    3.0f, 10.0f, 5.0f, 2.0f, 26.0f,
+    7.0f, 9.0f, 5.0f, 2.0f, 23.0f,
+    5.0f, 9.0f, 4.0f, 3.0f, 23.0f,
+    1.0f, 10.0f, 7.0f, 2.0f, 27.0f,
+    5.0f, 10.0f, 6.0f, 1.0f, 24.0f,
+    3.0f, 10.0f, 5.0f, 2.0f, 24.0f,
+    1.0f, 10.0f, 7.0f, -2.0f, -23.0f,
+    1.0f, 10.0f, 10.0f, -1.0f, -26.0f,
+    3.0f, 10.0f, 8.0f, -1.0f, -23.0f,
+    -2.0f, 9.0f, 11.0f, -2.0f, -23.0f,
+    1.0f, 10.0f, 10.0f, -1.0f, -20.0f,
+    -1.0f, 10.0f, 9.0f, -2.0f, -20.0f,
+    -2.0f, 9.0f, 11.0f, -2.0f, -14.0f,
+    -2.0f, 7.0f, 13.0f, -1.0f, -17.0f,
+    -0.0f, 9.0f, 12.0f, -1.0f, -14.0f,
+    -4.0f, 6.0f, 13.0f, -2.0f, -8.0f,
+    -2.0f, 7.0f, 13.0f, -1.0f, -7.0f,
+    -4.0f, 7.0f, 12.0f, -2.0f, -7.0f,
+    -4.0f, 0.0f, 13.0f, -2.0f, -0.0f,
+    -2.0f, 6.0f, 14.0f, -1.0f, 8.0f,
+    -4.0f, 6.0f, 13.0f, -2.0f, 8.0f,
+    -4.0f, 0.0f, 13.0f, 12.0f, -25.0f,
+    0.0f, 0.0f, 12.0f, 10.0f, -23.0f,
+    -2.0f, 0.0f, 14.0f, 11.0f, -26.0f,
+    -2.0f, 6.0f, 11.0f, 2.0f, 7.0f,
+    0.0f, 0.0f, 12.0f, 1.0f, 0.0f,
+    -2.0f, 0.0f, 11.0f, 2.0f, 0.0f,
+    8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
+    6.0f, 0.0f, 5.0f, 8.0f, -15.0f,
+    4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+    4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+    4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+    6.0f, 0.0f, 2.0f, 8.0f, -10.0f,
+    8.0f, 0.0f, 3.0f, 7.0f, -12.0f,
+    4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+    4.0f, 0.0f, 4.0f, 8.0f, -13.0f,
+    6.0f, 6.0f, 5.0f, -2.0f, 7.0f,
+    4.0f, 6.0f, 4.0f, -3.0f, 7.0f,
+    4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+    4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+    4.0f, 0.0f, 4.0f, -3.0f, -0.0f,
+    6.0f, 0.0f, 5.0f, -2.0f, -0.0f,
+    -2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
+    -2.0f, 0.0f, 11.0f, 15.0f, 0.0f,
+    -4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
+    -4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
+    -4.0f, 6.0f, 13.0f, 17.0f, 8.0f,
+    -4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+    -4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+    -2.0f, 9.0f, 11.0f, 15.0f, 11.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    1.0f, 10.0f, 7.0f, 12.0f, 13.0f,
+    3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
+    3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
+    5.0f, 9.0f, 4.0f, 10.0f, 11.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    6.0f, 6.0f, 2.0f, 8.0f, 8.0f,
+    6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
+    6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
+    4.0f, 0.0f, 4.0f, 10.0f, -0.0f,
+    4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    6.0f, 0.0f, 2.0f, 8.0f, 0.0f,
+    4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    3.0f, 10.0f, 5.0f, 11.0f, 12.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    -2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
+    -4.0f, 0.0f, 13.0f, 17.0f, -0.0f,
+    -4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+    -1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
+    -2.0f, 6.0f, 11.0f, 15.0f, 7.0f,
+    -4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    4.0f, 6.0f, 4.0f, 10.0f, 7.0f,
+    4.0f, 7.0f, 5.0f, 10.0f, 8.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    4.0f, 7.0f, 5.0f, 10.0f, 8.0f,
+    3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
+    -1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
+    -4.0f, 7.0f, 12.0f, 16.0f, 9.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    -0.0f, 8.0f, 9.0f, 14.0f, 10.0f,
+    -1.0f, 7.0f, 10.0f, 15.0f, 8.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    6.0f, 7.0f, 2.0f, 9.0f, 9.0f,
+    3.0f, 8.0f, 6.0f, 11.0f, 10.0f,
+    1.0f, 8.0f, 7.0f, 13.0f, 10.0f,
+    -0.0f, 8.0f, 9.0f, 14.0f, 10.0f,
+    -1.0f, 10.0f, 9.0f, 14.0f, 12.0f,
+    -2.0f, 6.0f, 11.0f, 2.0f, -13.0f,
+    -1.0f, 7.0f, 10.0f, 2.0f, -11.0f,
+    1.0f, 7.0f, 11.0f, 1.0f, -11.0f,
+    -0.0f, 8.0f, 9.0f, 2.0f, -19.0f,
+    2.0f, 8.0f, 10.0f, 1.0f, -19.0f,
+    1.0f, 7.0f, 11.0f, 1.0f, -21.0f,
+    -0.0f, 8.0f, 9.0f, 2.0f, -26.0f,
+    1.0f, 8.0f, 7.0f, 2.0f, -24.0f,
+    3.0f, 8.0f, 8.0f, 1.0f, -24.0f,
+    3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+    5.0f, 8.0f, 7.0f, -1.0f, 25.0f,
+    3.0f, 8.0f, 8.0f, -1.0f, 27.0f,
+    3.0f, 8.0f, 6.0f, -2.0f, 25.0f,
+    4.0f, 7.0f, 5.0f, -3.0f, 23.0f,
+    6.0f, 7.0f, 6.0f, -2.0f, 23.0f,
+    4.0f, 7.0f, 5.0f, -3.0f, 20.0f,
+    4.0f, 6.0f, 4.0f, -3.0f, 18.0f,
+    6.0f, 6.0f, 5.0f, -2.0f, 18.0f,
+    6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
+    6.0f, 0.0f, 5.0f, -10.0f, -0.0f,
+    8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+    8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+    8.0f, 6.0f, 3.0f, -9.0f, 8.0f,
+    8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
+    8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
+    7.0f, 9.0f, 5.0f, -10.0f, 11.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    3.0f, 10.0f, 8.0f, -13.0f, 13.0f,
+    1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
+    1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
+    -0.0f, 9.0f, 12.0f, -15.0f, 11.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    -2.0f, 6.0f, 14.0f, -17.0f, 8.0f,
+    -2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
+    -2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
+    0.0f, 0.0f, 12.0f, -15.0f, 0.0f,
+    0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    -2.0f, 0.0f, 14.0f, -17.0f, -0.0f,
+    0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    1.0f, 10.0f, 10.0f, -14.0f, 12.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+    8.0f, 7.0f, 3.0f, -9.0f, 9.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
+    8.0f, 0.0f, 3.0f, -9.0f, 0.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    0.0f, 6.0f, 12.0f, -15.0f, 7.0f,
+    1.0f, 7.0f, 11.0f, -15.0f, 8.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    1.0f, 7.0f, 11.0f, -15.0f, 8.0f,
+    2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
+    6.0f, 7.0f, 6.0f, -11.0f, 8.0f,
+    6.0f, 6.0f, 5.0f, -10.0f, 7.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    5.0f, 8.0f, 7.0f, -12.0f, 10.0f,
+    6.0f, 7.0f, 6.0f, -11.0f, 8.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    -2.0f, 7.0f, 13.0f, -16.0f, 9.0f,
+    2.0f, 8.0f, 10.0f, -14.0f, 10.0f,
+    3.0f, 8.0f, 8.0f, -13.0f, 10.0f,
+    5.0f, 8.0f, 7.0f, -12.0f, 10.0f,
+    5.0f, 10.0f, 6.0f, -11.0f, 12.0f,
+    6.0f, 6.0f, 2.0f, 3.0f, 8.0f,
+    8.0f, 6.0f, 3.0f, 2.0f, 8.0f,
+    8.0f, 0.0f, 3.0f, 2.0f, -0.0f,
+    6.0f, 6.0f, 2.0f, 3.0f, 15.0f,
+    6.0f, 7.0f, 2.0f, 3.0f, 16.0f,
+    8.0f, 7.0f, 3.0f, 2.0f, 16.0f,
+    6.0f, 7.0f, 2.0f, 3.0f, 19.0f,
+    5.0f, 9.0f, 4.0f, 3.0f, 22.0f,
+    7.0f, 9.0f, 5.0f, 2.0f, 22.0f,
+    3.0f, 10.0f, 5.0f, 2.0f, 26.0f,
+    5.0f, 10.0f, 6.0f, 1.0f, 26.0f,
+    7.0f, 9.0f, 5.0f, 2.0f, 23.0f,
+    1.0f, 10.0f, 7.0f, 2.0f, 27.0f,
+    3.0f, 10.0f, 8.0f, 1.0f, 27.0f,
+    5.0f, 10.0f, 6.0f, 1.0f, 24.0f,
+    1.0f, 10.0f, 7.0f, -2.0f, -23.0f,
+    -1.0f, 10.0f, 9.0f, -2.0f, -26.0f,
+    1.0f, 10.0f, 10.0f, -1.0f, -26.0f,
+    -2.0f, 9.0f, 11.0f, -2.0f, -23.0f,
+    -0.0f, 9.0f, 12.0f, -1.0f, -23.0f,
+    1.0f, 10.0f, 10.0f, -1.0f, -20.0f,
+    -2.0f, 9.0f, 11.0f, -2.0f, -14.0f,
+    -4.0f, 7.0f, 12.0f, -2.0f, -17.0f,
+    -2.0f, 7.0f, 13.0f, -1.0f, -17.0f,
+    -4.0f, 6.0f, 13.0f, -2.0f, -8.0f,
+    -2.0f, 6.0f, 14.0f, -1.0f, -8.0f,
+    -2.0f, 7.0f, 13.0f, -1.0f, -7.0f,
+    -4.0f, 0.0f, 13.0f, -2.0f, -0.0f,
+    -2.0f, 0.0f, 14.0f, -1.0f, -0.0f,
+    -2.0f, 6.0f, 14.0f, -1.0f, 8.0f,
+    -4.0f, 0.0f, 13.0f, 12.0f, -25.0f,
+    -2.0f, 0.0f, 11.0f, 11.0f, -22.0f,
+    0.0f, 0.0f, 12.0f, 10.0f, -23.0f,
+    -2.0f, 6.0f, 11.0f, 2.0f, 7.0f,
+    0.0f, 6.0f, 12.0f, 1.0f, 7.0f,
+    0.0f, 0.0f, 12.0f, 1.0f, 0.0f};
 
 float floorVertices[] = {
-    -30.0f, -0.5f,  30.0f,  0.0f, 0.0f,
-     30.0f, -0.5f,  30.0f,  1.0f, 0.0f,
-     30.0f, -0.5f, -30.0f,  1.0f, 1.0f,
-     30.0f, -0.5f, -30.0f,  1.0f, 1.0f,
-    -30.0f, -0.5f, -30.0f,  0.0f, 1.0f,
-    -30.0f, -0.5f,  30.0f,  0.0f, 0.0f
-};
+    -30.0f, -0.5f, 30.0f, 0.0f, 0.0f,
+    30.0f, -0.5f, 30.0f, 1.0f, 0.0f,
+    30.0f, -0.5f, -30.0f, 1.0f, 1.0f,
+    30.0f, -0.5f, -30.0f, 1.0f, 1.0f,
+    -30.0f, -0.5f, -30.0f, 0.0f, 1.0f,
+    -30.0f, -0.5f, 30.0f, 0.0f, 0.0f};
 
 std::vector<glm::vec2> innerTrack = {
-    glm::vec2(-23.0f,  3.0f),
-    glm::vec2( 23.0f,  3.0f),
-    glm::vec2( 23.0f, -3.0f),
-    glm::vec2( 23.0f, -3.0f),
+    glm::vec2(-23.0f, 3.0f),
+    glm::vec2(23.0f, 3.0f),
+    glm::vec2(23.0f, -3.0f),
+    glm::vec2(23.0f, -3.0f),
     glm::vec2(-23.0f, -3.0f),
-    glm::vec2(-23.0f,  3.0f)
-};
+    glm::vec2(-23.0f, 3.0f)};
 
 std::vector<glm::vec2> outerTrack = {
-    glm::vec2(-28.0f,  10.0f),
-    glm::vec2( 28.0f,  10.0f),
-    glm::vec2( 28.0f, -10.0f),
-    glm::vec2( 28.0f, -10.0f),
+    glm::vec2(-28.0f, 10.0f),
+    glm::vec2(28.0f, 10.0f),
+    glm::vec2(28.0f, -10.0f),
+    glm::vec2(28.0f, -10.0f),
     glm::vec2(-28.0f, -10.0f),
-    glm::vec2(-28.0f,  10.0f)
-};
+    glm::vec2(-28.0f, 10.0f)};
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
 bool permitirMovimentacao = true;
@@ -925,20 +919,24 @@ glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
 float velocidadeCarro = 0.1f;
-float carroRotacao = 90.0f;                 // Rotação inicial
+float carroRotacao = 90.0f; // Rotação inicial
 
-bool isPointInsidePolygon(const glm::vec2& point, const std::vector<glm::vec2>& polygon) {
+bool isPointInsidePolygon(const glm::vec2 &point, const std::vector<glm::vec2> &polygon)
+{
     int intersections = 0;
     size_t n = polygon.size();
 
-    for (size_t i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++)
+    {
         glm::vec2 v1 = polygon[i];
         glm::vec2 v2 = polygon[(i + 1) % n];
 
         // Verifica se o ponto está entre a borda vertical do segmento
-        if ((point.y > v1.y) != (point.y > v2.y)) {
+        if ((point.y > v1.y) != (point.y > v2.y))
+        {
             float xIntersection = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
-            if (point.x < xIntersection) {
+            if (point.x < xIntersection)
+            {
                 intersections++;
             }
         }
@@ -948,9 +946,10 @@ bool isPointInsidePolygon(const glm::vec2& point, const std::vector<glm::vec2>& 
     return intersections % 2 == 1;
 }
 
-bool isCarInsideTrack(const glm::vec2& carPosition, 
-                      const std::vector<glm::vec2>& innerTrack, 
-                      const std::vector<glm::vec2>& outerTrack) {
+bool isCarInsideTrack(const glm::vec2 &carPosition,
+                      const std::vector<glm::vec2> &innerTrack,
+                      const std::vector<glm::vec2> &outerTrack)
+{
     // O carro deve estar:
     // - Fora do polígono interno
     // - Dentro do polígono externo
@@ -958,7 +957,8 @@ bool isCarInsideTrack(const glm::vec2& carPosition,
            !isPointInsidePolygon(carPosition, innerTrack);
 }
 
-glm::vec2 closestPointOnSegment(glm::vec2 point, glm::vec2 segmentStart, glm::vec2 segmentEnd) {
+glm::vec2 closestPointOnSegment(glm::vec2 point, glm::vec2 segmentStart, glm::vec2 segmentEnd)
+{
     // Vetor do segmento
     glm::vec2 segment = segmentEnd - segmentStart;
 
@@ -972,12 +972,14 @@ glm::vec2 closestPointOnSegment(glm::vec2 point, glm::vec2 segmentStart, glm::ve
     return segmentStart + t * segment;
 }
 
-glm::vec2 projectCarOnTrack(glm::vec2 carroPosicao, const std::vector<glm::vec2>& track) {
+glm::vec2 projectCarOnTrack(glm::vec2 carroPosicao, const std::vector<glm::vec2> &track)
+{
     glm::vec2 projection;
     float minDistance = std::numeric_limits<float>::max();
 
     // Percorre os pontos da pista
-    for (size_t i = 0; i < track.size() - 1; ++i) {
+    for (size_t i = 0; i < track.size() - 1; ++i)
+    {
         // Segmento atual da pista
         glm::vec2 p1 = track[i];
         glm::vec2 p2 = track[i + 1];
@@ -995,7 +997,8 @@ glm::vec2 projectCarOnTrack(glm::vec2 carroPosicao, const std::vector<glm::vec2>
         float distance = glm::length(projectedPoint - carroPosicao);
 
         // Atualiza se a distância for menor
-        if (distance < minDistance) {
+        if (distance < minDistance)
+        {
             minDistance = distance;
             projection = projectedPoint;
         }
@@ -1004,7 +1007,8 @@ glm::vec2 projectCarOnTrack(glm::vec2 carroPosicao, const std::vector<glm::vec2>
     return projection;
 }
 
-glm::vec2 correctCarPosition(glm::vec2 carroPosicao, const std::vector<glm::vec2>& innerTrack, const std::vector<glm::vec2>& outerTrack) {
+glm::vec2 correctCarPosition(glm::vec2 carroPosicao, const std::vector<glm::vec2> &innerTrack, const std::vector<glm::vec2> &outerTrack)
+{
     // Projeta o carro na pista interna e externa
     glm::vec2 posicaoInner = projectCarOnTrack(carroPosicao, innerTrack);
     glm::vec2 posicaoOuter = projectCarOnTrack(carroPosicao, outerTrack);
@@ -1014,234 +1018,131 @@ glm::vec2 correctCarPosition(glm::vec2 carroPosicao, const std::vector<glm::vec2
     glm::vec2 vectorToOuter = posicaoOuter - carroPosicao;
 
     // Verifica qual vetor é menor e usa isso para corrigir a posição
-    if (glm::length(vectorToInner) < glm::length(vectorToOuter)) {
+    if (glm::length(vectorToInner) < glm::length(vectorToOuter))
+    {
         return posicaoInner;
-    } else {
+    }
+    else
+    {
         return posicaoOuter;
     }
 }
 
-int main()
+unsigned int setupVAO(const float *vertices, size_t size)
 {
-    // glfw: initialize and configure
-    // ------------------------------
-    glfwInit();
+    unsigned int VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)0);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void *)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    return VAO;
+}
+
+// Função para carregar e configurar texturas
+unsigned int loadTexture(const char *path, GLenum textureFormat = GL_RGB)
+{
+    unsigned int textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    int width, height, nrChannels;
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char *data = stbi_load(path, &width, &height, &nrChannels, 0);
+
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, textureFormat, width, height, 0, textureFormat, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture: " << path << std::endl;
+    }
+    stbi_image_free(data);
+
+    return textureID;
+}
+
+GLFWwindow* initGLFW(int width, int height) {
+    // Inicializar o GLFW
+    if (!glfwInit()) {
+        std::cerr << "Failed to initialize GLFW" << std::endl;
+        return nullptr;
+    }
+
+    // Configurar o GLFW
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Necessário pro MacOs, desabilitar pra executar no Windows
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Necessário para MacOS, desabilitar para Windows
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-#ifdef __APPLE__
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-#endif
+    #ifdef __APPLE__
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    #endif
 
-    // glfw window creation
-    // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Coordenadas OpenGL : Cubo", NULL, NULL);
-    if (window == NULL)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
+    // Criar a janela
+    GLFWwindow *window = glfwCreateWindow(width, height, "Coordenadas OpenGL : Cubo", NULL, NULL);
+    if (!window) {
+        std::cerr << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
-        return -1;
+        return nullptr;
     }
+
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+    // Carregar as funções do OpenGL com GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cerr << "Failed to initialize GLAD" << std::endl;
+        return nullptr;
+    }
+
+    // Habilitar o teste de profundidade
+    glEnable(GL_DEPTH_TEST);
+
+    return window;
+}
+
+int main()
+{
+    // Inicializar GLFW e OpenGL
+    GLFWwindow* window = initGLFW(SCR_WIDTH, SCR_HEIGHT);
+    if (!window) {
         return -1;
     }
 
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    unsigned int VAOcarro = setupVAO(carroVertices, sizeof(carroVertices));
+    unsigned int placaVAO = setupVAO(placaVertices, sizeof(placaVertices));
+    unsigned int arcoVAO = setupVAO(arcoVertices, sizeof(arcoVertices));
+    unsigned int floorVAO = setupVAO(floorVertices, sizeof(floorVertices));
 
-    // glew: load all OpenGL function pointers
-    // ---------------------------------------
-    // if(glewInit()!=GLEW_OK) {
-    //     std::cout << "Ocorreu um erro iniciando GLEW!" << std::endl;
-    // } else {
-    //     std::cout << "GLEW OK!" << std::endl;
-    //     std::cout << glGetString(GL_VERSION) << std::endl;
-    // }
-
-    // configure global opengl state
-    // -----------------------------
-    glEnable(GL_DEPTH_TEST);
-
-    // build and compile our shader zprogram
-    // ------------------------------------
     Shader ourShader("vertex.glsl", "fragment.glsl");
-    unsigned int VAOcarro, VBOcarro;
-    glGenVertexArrays(1, &VAOcarro);
-    glGenBuffers(1, &VBOcarro);
-    glBindVertexArray(VAOcarro);
+    // Carregar texturas
+    unsigned int texture1 = loadTexture("res/images/sla.jpg", GL_RGB);
+    unsigned int texture2 = loadTexture("res/images/Chao.png", GL_RGBA);
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBOcarro);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(carroVertices), carroVertices, GL_STATIC_DRAW);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    // Desvincular para evitar erros
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-
-    unsigned int squareVAO, squareVBO;
-    glGenVertexArrays(1, &squareVAO);
-    glGenBuffers(1, &squareVBO);
-
-    glBindVertexArray(squareVAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, squareVBO);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    // Desvincular VAO
-    glBindVertexArray(0);
-
-
-    unsigned int placaVAO, placaVBO;
-    // Gerar o VAO e o VBO
-    glGenVertexArrays(1, &placaVAO);
-    glGenBuffers(1, &placaVBO);
-
-    // Vincular o VAO da placa
-    glBindVertexArray(placaVAO);
-
-    // Vincular o VBO e carregar os dados dos vértices
-    glBindBuffer(GL_ARRAY_BUFFER, placaVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(placaVertices), placaVertices, GL_STATIC_DRAW);
-
-    // Configurar o atributo de posição (layout location 0)
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    // Configurar o atributo de coordenadas de textura (layout location 1)
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    // Desvincular o VAO e o VBO
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-
-
-    unsigned int arcoVAO, arcoVBO;
-    // Gerar o VAO e o VBO
-    glGenVertexArrays(1, &arcoVAO);
-    glGenBuffers(1, &arcoVBO);
-
-    // Vincular o VAO da placa
-    glBindVertexArray(arcoVAO);
-
-    // Vincular o VBO e carregar os dados dos vértices
-    glBindBuffer(GL_ARRAY_BUFFER, arcoVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(arcoVertices), arcoVertices, GL_STATIC_DRAW);
-
-    // Configurar o atributo de posição (layout location 0)
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
-    // Configurar o atributo de coordenadas de textura (layout location 1)
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    // Desvincular o VAO e o VBO
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-
-
-
-    unsigned int coneVAO, coneVBO;
-
-    // Gerar o VAO e o VBO
-    glGenVertexArrays(1, &coneVAO);
-    glGenBuffers(1, &coneVBO);
-
-    // Vincular o VAO da placa
-    glBindVertexArray(coneVAO);
-
-    // Configuração do VAO e VBO para o chão
-    unsigned int floorVAO, floorVBO;
-    glGenVertexArrays(1, &floorVAO);
-    glGenBuffers(1, &floorVBO);
-
-    glBindVertexArray(floorVAO);
-    glBindBuffer(GL_ARRAY_BUFFER, floorVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(floorVertices), floorVertices, GL_STATIC_DRAW);
-
-    // Atributos de posição
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    // Atributos de coordenadas de textura
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    glBindVertexArray(0);
-
-
-    // load and create a texture
-    // -------------------------
-    unsigned int texture1, texture2, texture3;
-    // texture 1
-    // ---------
-    glGenTextures(1, &texture1);
-    glBindTexture(GL_TEXTURE_2D, texture1);
-    // set the texture wrapping parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    // load image, create texture and generate mipmaps
-    int width, height, nrChannels;
-    stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
-    unsigned char *data = stbi_load("res/images/sla.jpg", &width, &height, &nrChannels, 0);
-    if (data)
-    {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-    stbi_image_free(data);
-    // texture 2
-    // ---------
-    glGenTextures(1, &texture2);
-    glBindTexture(GL_TEXTURE_2D, texture2);
-    // set the texture wrapping parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    //load image, create texture and generate mipmaps
-    data = stbi_load("res/images/Chao.png", &width, &height, &nrChannels, 0);
-    if (data)
-    {
-        // note that the awesomeface.png has transparency and thus an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-    stbi_image_free(data);
-
-    // tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
-    // -------------------------------------------------------------------------------------------
+    // Associar as texturas aos slots do shader
     ourShader.use();
     ourShader.setInt("texture1", 0);
     ourShader.setInt("texture2", 1);
-
 
     // render loop
     // -----------
@@ -1253,7 +1154,7 @@ int main()
 
         // render
         // ------
-        //glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        // glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
 
@@ -1267,39 +1168,41 @@ int main()
         ourShader.use();
 
         // Ângulo de yaw (em graus)
-        float yawAngle = -45.0f; 
+        float yawAngle = -45.0f;
 
         // Converta o yaw para radianos
         float yawRadians = glm::radians(yawAngle);
 
         // Calcule o novo vetor "cameraFront" com base no yaw
-        cameraFront.x = cos(yawRadians); // Componente X
-        cameraFront.z = sin(yawRadians); // Componente Z
+        cameraFront.x = cos(yawRadians);           // Componente X
+        cameraFront.z = sin(yawRadians);           // Componente Z
         cameraFront = glm::normalize(cameraFront); // Normalize o vetor
 
         // Matrizes de transformação
-        glm::mat4 model = glm::mat4(1.0f); // Inicialize a matriz modelo como identidade
+        glm::mat4 model = glm::mat4(1.0f);           // Inicialize a matriz modelo como identidade
         model = glm::translate(model, carroPosicao); // Translada para nova posição
         model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-        model = glm::rotate(model, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotação inicial do carro 
+        model = glm::rotate(model, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotação inicial do carro
         glm::vec2 carroPosicao2 = glm::vec2(carroPosicao.x, carroPosicao.z);
 
-        if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack)) {   
+        if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack))
+        {
             glm::vec2 carroPosicaoAjustado = correctCarPosition(carroPosicao, innerTrack, outerTrack);
             carroPosicao = glm::mix(carroPosicao, glm::vec3(carroPosicaoAjustado.x, -1.5f, carroPosicaoAjustado.y), 0.05f);
         }
 
         std::cout << "Posição: " << carroPosicao.x << " | " << carroPosicao.z;
-        std::cout << "\nRotação: " << carroRotacao << " graus" << std::endl << "\n";
+        std::cout << "\nRotação: " << carroRotacao << " graus" << std::endl
+                  << "\n";
 
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
         view = glm::rotate(view, glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 1.0f)); // Rotação em torno do eixo X
-        glm::mat4 projection = glm::mat4(1.0f); // Inicialize a matriz de projeção
+        glm::mat4 projection = glm::mat4(1.0f);                                     // Inicialize a matriz de projeção
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
         // retrieve the matrix uniform locations
         unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
-        unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
+        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
         // pass them to the shaders (3 different ways)
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
@@ -1312,43 +1215,41 @@ int main()
         glBindVertexArray(0); // Desvincular o VAO
 
         // Placa
-        glBindVertexArray(placaVAO); // Certifique-se de ter configurado o VAO da placa
-        glm::mat4 modelPlaca = glm::mat4(1.0f); // Matriz identidade
-        modelPlaca = glm::translate(modelPlaca, glm::vec3(-4.0f, -1.5f, 11.5f)); // Posiciona a placa
-        modelPlaca = glm::scale(modelPlaca, glm::vec3(0.50f, 0.60f, 0.50f)); // Ajuste o tamanho se necessário
+        glBindVertexArray(placaVAO);                                                            // Certifique-se de ter configurado o VAO da placa
+        glm::mat4 modelPlaca = glm::mat4(1.0f);                                                 // Matriz identidade
+        modelPlaca = glm::translate(modelPlaca, glm::vec3(-4.0f, -1.5f, 11.5f));                // Posiciona a placa
+        modelPlaca = glm::scale(modelPlaca, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
         modelPlaca = glm::rotate(modelPlaca, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
         ourShader.setMat4("model", modelPlaca);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
-        glBindVertexArray(0); // Desvincula o VAO
+        glBindVertexArray(0);                // Desvincula o VAO
 
         // Placa2
-        glBindVertexArray(placaVAO); // Certifique-se de ter configurado o VAO da placa
-        glm::mat4 modelPlaca2 = glm::mat4(1.0f); // Matriz identidade
-        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(2.0f, -1.5f, 11.5f)); // Posiciona a placa
-        modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.50f, 0.60f, 0.50f)); // Ajuste o tamanho se necessário
+        glBindVertexArray(placaVAO);                                                              // Certifique-se de ter configurado o VAO da placa
+        glm::mat4 modelPlaca2 = glm::mat4(1.0f);                                                  // Matriz identidade
+        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(2.0f, -1.5f, 11.5f));                 // Posiciona a placa
+        modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
         modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
         ourShader.setMat4("model", modelPlaca2);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
-        glBindVertexArray(0); // Desvincula o VAO
-
+        glBindVertexArray(0);                // Desvincula o VAO
 
         // Arco
-        glBindVertexArray(arcoVAO); // Certifique-se de ter configurado o VAO da placa
-        glm::mat4 modelArco = glm::mat4(1.0f); // Matriz identidade
-        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 11.5f)); // Posiciona a placa
-        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.50f)); // Ajuste o tamanho se necessário
+        glBindVertexArray(arcoVAO);                                                           // Certifique-se de ter configurado o VAO da placa
+        glm::mat4 modelArco = glm::mat4(1.0f);                                                // Matriz identidade
+        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 11.5f));                 // Posiciona a placa
+        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
         modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
         ourShader.setMat4("model", modelArco);
         glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
-        glBindVertexArray(0); // Desvincula o VAO
-
+        glBindVertexArray(0);                // Desvincula o VAO
 
         // Chão
         glBindVertexArray(floorVAO);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2); // Use a mesma textura do cubo
         glm::mat4 modelFloor = glm::mat4(1.0f);
-        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f));  // Desloca o chão para baixo
+        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão para baixo
         ourShader.setMat4("model", modelFloor);
         glBindVertexArray(floorVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -1360,7 +1261,7 @@ int main()
     }
 
     glDeleteVertexArrays(1, &VAOcarro);
-    glDeleteBuffers(1, &VBOcarro);
+    // glDeleteBuffers(1, &VBOcarro);
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------
@@ -1373,10 +1274,12 @@ int main()
 void processInput(GLFWwindow *window)
 {
     // Rotação do carro
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    {
         carroRotacao += 2.0f; // Rotaciona para a esquerda
     }
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    {
         carroRotacao -= 2.0f; // Rotaciona para a direita
     }
 
@@ -1384,21 +1287,26 @@ void processInput(GLFWwindow *window)
     float anguloRad = glm::radians(carroRotacao);
 
     // Direção do movimento baseado na rotação
-    glm::vec3 direcaoFrente = glm::vec3( sin(anguloRad), 0.0f,cos(anguloRad));
+    glm::vec3 direcaoFrente = glm::vec3(sin(anguloRad), 0.0f, cos(anguloRad));
 
     // Movimentação para frente ou para trás
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    {
         carroPosicao += velocidadeCarro * direcaoFrente;
     }
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    {
         carroPosicao -= velocidadeCarro * direcaoFrente;
-    }   
+    }
 
     // Normaliza a rotação para mantê-la dentro do intervalo [0, 360)
-    if (carroRotacao >= 360.0f) carroRotacao -= 360.0f;
-    if (carroRotacao < 0.0f) carroRotacao += 360.0f;
+    if (carroRotacao >= 360.0f)
+        carroRotacao -= 360.0f;
+    if (carroRotacao < 0.0f)
+        carroRotacao += 360.0f;
 
-    if (!permitirMovimentacao) return; // Ignorar teclas
+    if (!permitirMovimentacao)
+        return; // Ignorar teclas
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
@@ -1406,18 +1314,18 @@ void processInput(GLFWwindow *window)
     const float cameraSpeed = 0.05f;
     // ajustar de acordo com a velocidade do computador
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-    cameraPos += cameraSpeed * cameraFront;
+        cameraPos += cameraSpeed * cameraFront;
     if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-    cameraPos -= cameraSpeed * cameraFront;
+        cameraPos -= cameraSpeed * cameraFront;
     if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-    cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
     if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-    cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and
     // height will be significantly larger than specified on retina displays.
