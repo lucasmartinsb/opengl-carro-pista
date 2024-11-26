@@ -889,20 +889,20 @@ float floorVertices[] = {
     -30.0f, -0.5f, 30.0f, 0.0f, 0.0f};
 
 std::vector<glm::vec2> innerTrack = {
-    glm::vec2(-23.0f, 3.0f),
-    glm::vec2(23.0f, 3.0f),
-    glm::vec2(23.0f, -3.0f),
-    glm::vec2(23.0f, -3.0f),
-    glm::vec2(-23.0f, -3.0f),
-    glm::vec2(-23.0f, 3.0f)};
+    glm::vec2(-25.0f,  5.0f),
+    glm::vec2( 25.0f,  5.0f),
+    glm::vec2( 25.0f, -5.0f),
+    glm::vec2( 25.0f, -5.0f),
+    glm::vec2(-25.0f, -5.0f),
+    glm::vec2(-25.0f,  5.0f)};
 
 std::vector<glm::vec2> outerTrack = {
-    glm::vec2(-28.0f, 10.0f),
-    glm::vec2(28.0f, 10.0f),
-    glm::vec2(28.0f, -10.0f),
-    glm::vec2(28.0f, -10.0f),
-    glm::vec2(-28.0f, -10.0f),
-    glm::vec2(-28.0f, 10.0f)};
+    glm::vec2(-27.0f,  10.0f),
+    glm::vec2( 27.0f,  10.0f),
+    glm::vec2( 27.0f, -10.0f),
+    glm::vec2( 27.0f, -10.0f),
+    glm::vec2(-27.0f, -10.0f),
+    glm::vec2(-27.0f,  10.0f)};
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
