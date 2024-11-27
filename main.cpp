@@ -1167,22 +1167,21 @@ int main()
         // activate shader
         ourShader.use();
 
-        // Ângulo de yaw (em graus)
-        float yawAngle = -45.0f;
+        // Camera
+        float yawRadians = glm::radians(-45.0);
+        cameraFront.x = cos(yawRadians);
+        cameraFront.z = sin(yawRadians);
+        cameraFront = glm::normalize(cameraFront);
+        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
+        view = glm::rotate(view, glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 1.0f));
+        glm::mat4 projection = glm::mat4(1.0f);
+        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
-        // Converta o yaw para radianos
-        float yawRadians = glm::radians(yawAngle);
-
-        // Calcule o novo vetor "cameraFront" com base no yaw
-        cameraFront.x = cos(yawRadians);           // Componente X
-        cameraFront.z = sin(yawRadians);           // Componente Z
-        cameraFront = glm::normalize(cameraFront); // Normalize o vetor
-
-        // Matrizes de transformação
-        glm::mat4 model = glm::mat4(1.0f);           // Inicialize a matriz modelo como identidade
-        model = glm::translate(model, carroPosicao); // Translada para nova posição
-        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-        model = glm::rotate(model, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotação inicial do carro
+        // Carro
+        glm::mat4 modelCarro = glm::mat4(1.0f);
+        modelCarro = glm::translate(modelCarro, carroPosicao);
+        modelCarro = glm::scale(modelCarro, glm::vec3(0.5f, 0.5f, 0.5f));
+        modelCarro = glm::rotate(modelCarro, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f));
         glm::vec2 carroPosicao2 = glm::vec2(carroPosicao.x, carroPosicao.z);
 
         if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack))
@@ -1195,61 +1194,46 @@ int main()
         std::cout << "\nRotação: " << carroRotacao << " graus" << std::endl
                   << "\n";
 
-        glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp); // Atualize a matriz de visão
-        view = glm::rotate(view, glm::radians(15.0f), glm::vec3(1.0f, 0.0f, 1.0f)); // Rotação em torno do eixo X
-        glm::mat4 projection = glm::mat4(1.0f);                                     // Inicialize a matriz de projeção
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-
-        // retrieve the matrix uniform locations
-        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
-        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
-        // pass them to the shaders (3 different ways)
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
-        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-        ourShader.setMat4("projection", projection);
-
-        // Renderizar o carro
         glBindVertexArray(VAOcarro);
         glDrawArrays(GL_TRIANGLES, 0, 1000);
-        glBindVertexArray(0); // Desvincular o VAO
+        glBindVertexArray(0);
 
         // Placa
-        glBindVertexArray(placaVAO);                                                            // Certifique-se de ter configurado o VAO da placa
-        glm::mat4 modelPlaca = glm::mat4(1.0f);                                                 // Matriz identidade
-        modelPlaca = glm::translate(modelPlaca, glm::vec3(-4.0f, -1.5f, 11.5f));                // Posiciona a placa
-        modelPlaca = glm::scale(modelPlaca, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
-        modelPlaca = glm::rotate(modelPlaca, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
+        glBindVertexArray(placaVAO);
+        glm::mat4 modelPlaca = glm::mat4(1.0f);
+        modelPlaca = glm::translate(modelPlaca, glm::vec3(-4.0f, -1.5f, 11.5f));
+        modelPlaca = glm::scale(modelPlaca, glm::vec3(0.50f, 0.60f, 0.50f));
+        modelPlaca = glm::rotate(modelPlaca, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         ourShader.setMat4("model", modelPlaca);
-        glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
-        glBindVertexArray(0);                // Desvincula o VAO
+        glDrawArrays(GL_TRIANGLES, 0, 1000);
+        glBindVertexArray(0);
 
         // Placa2
-        glBindVertexArray(placaVAO);                                                              // Certifique-se de ter configurado o VAO da placa
-        glm::mat4 modelPlaca2 = glm::mat4(1.0f);                                                  // Matriz identidade
-        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(-4.0f, -1.5f, -11.5f));                 // Posiciona a placa
-        modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.50f, 0.60f, 0.50f));                    // Ajuste o tamanho se necessário
-        modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
+        glBindVertexArray(placaVAO);
+        glm::mat4 modelPlaca2 = glm::mat4(1.0f);
+        modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(-4.0f, -1.5f, -11.5f));
+        modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.50f, 0.60f, 0.50f));
+        modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         ourShader.setMat4("model", modelPlaca2);
-        glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
-        glBindVertexArray(0);                // Desvincula o VAO
+        glDrawArrays(GL_TRIANGLES, 0, 1000);
+        glBindVertexArray(0);
 
         // Arco
-        glBindVertexArray(arcoVAO);                                                           // Certifique-se de ter configurado o VAO da placa
-        glm::mat4 modelArco = glm::mat4(1.0f);                                                // Matriz identidade
-        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 13.0f));                 // Posiciona a placa
-        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.70f));                    // Ajuste o tamanho se necessário
-        modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Sem rotação para este exemplo
+        glBindVertexArray(arcoVAO);
+        glm::mat4 modelArco = glm::mat4(1.0f);
+        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 13.0f));
+        modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.70f));
+        modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         ourShader.setMat4("model", modelArco);
-        glDrawArrays(GL_TRIANGLES, 0, 1000); // Use o número de vértices da placa (6 para dois triângulos de um retângulo)
-        glBindVertexArray(0);                // Desvincula o VAO
+        glDrawArrays(GL_TRIANGLES, 0, 1000);
+        glBindVertexArray(0);
 
         // Chão
         glBindVertexArray(floorVAO);
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture2); // Use a mesma textura do cubo
+        glBindTexture(GL_TEXTURE_2D, texture2);
         glm::mat4 modelFloor = glm::mat4(1.0f);
-        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão para baixo
+        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão pra baixo
         ourShader.setMat4("model", modelFloor);
         glBindVertexArray(floorVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -1258,6 +1242,15 @@ int main()
         // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
+
+        // retrieve the matrix uniform locations
+        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
+        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
+        // pass them to the shaders (3 different ways)
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelCarro));
+        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
+        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+        ourShader.setMat4("projection", projection);
     }
 
     glDeleteVertexArrays(1, &VAOcarro);
@@ -1306,7 +1299,7 @@ void processInput(GLFWwindow *window)
         carroRotacao += 360.0f;
 
     if (!permitirMovimentacao)
-        return; // Ignorar teclas
+        return; // Bloqueia a movimentação da câmera (do carro continua)
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
