@@ -910,15 +910,15 @@ void processInput(GLFWwindow *window);
 bool permitirMovimentacao = true;
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 800*1.25;
+const unsigned int SCR_HEIGHT = 600*1.25 ;
 
 glm::vec3 cameraPos = glm::vec3(-45.0f, 2.0f, 45.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
-float velocidadeCarro = 0.1f;
+float velocidadeCarro = 0.07f;
 float carroRotacao = 90.0f; // Rotação inicial
 
 bool isPointInsidePolygon(const glm::vec2 &point, const std::vector<glm::vec2> &polygon)
@@ -1137,7 +1137,7 @@ int main()
     Shader ourShader("vertex.glsl", "fragment.glsl");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/sla.jpg", GL_RGB);
-    unsigned int texture2 = loadTexture("res/images/Chao.png", GL_RGBA);
+    unsigned int texture2 = loadTexture("res/images/Chao2.png", GL_RGBA);
 
     // Associar as texturas aos slots do shader
     ourShader.use();
