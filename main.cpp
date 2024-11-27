@@ -889,12 +889,12 @@ float floorVertices[] = {
     -30.0f, -0.5f, 30.0f, 0.0f, 0.0f};
 
 std::vector<glm::vec2> innerTrack = {
-    glm::vec2(-25.0f,  5.0f),
-    glm::vec2( 25.0f,  5.0f),
-    glm::vec2( 25.0f, -5.0f),
-    glm::vec2( 25.0f, -5.0f),
-    glm::vec2(-25.0f, -5.0f),
-    glm::vec2(-25.0f,  5.0f)};
+    glm::vec2(-24.0f,  4.0f),
+    glm::vec2( 24.0f,  4.0f),
+    glm::vec2( 24.0f, -4.0f),
+    glm::vec2( 24.0f, -4.0f),
+    glm::vec2(-24.0f, -4.0f),
+    glm::vec2(-24.0f,  4.0f)};
 
 std::vector<glm::vec2> outerTrack = {
     glm::vec2(-27.0f,  10.0f),
