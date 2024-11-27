@@ -1135,8 +1135,9 @@ int main()
     unsigned int floorVAO = setupVAO(floorVertices, sizeof(floorVertices));
 
     Shader ourShader("vertex.glsl", "fragment.glsl");
+    Shader shaderVermelho("vertex.glsl", "fragment_vermelho.glsl");
     // Carregar texturas
-    unsigned int texture1 = loadTexture("res/images/sla.jpg", GL_RGB);
+    unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
     unsigned int texture2 = loadTexture("res/images/Chao2.png", GL_RGBA);
 
     // Associar as texturas aos slots do shader
@@ -1165,7 +1166,7 @@ int main()
         // glBindTexture(GL_TEXTURE_2D, texture2);
 
         // activate shader
-        ourShader.use();
+        shaderVermelho.use();
 
         // Camera
         float yawRadians = glm::radians(-45.0);
@@ -1197,7 +1198,11 @@ int main()
         glBindVertexArray(VAOcarro);
         glDrawArrays(GL_TRIANGLES, 0, 1000);
         glBindVertexArray(0);
+        shaderVermelho.setMat4("model", modelCarro);
+        shaderVermelho.setMat4("view", view);
+        shaderVermelho.setMat4("projection", projection);
 
+        ourShader.use();
         // Placa
         glBindVertexArray(placaVAO);
         glm::mat4 modelPlaca = glm::mat4(1.0f);
