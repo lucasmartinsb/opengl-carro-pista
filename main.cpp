@@ -10,6 +10,50 @@
 #include <Shader.h>
 #include <iostream>
 
+float cubeVertices[] = {
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+     0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+     0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
+
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+};
+
 float carroVertices[] = {
     1.3f, 1.0f, -0.5f, 0.875f, 0.5f,
     2.3f, 1.0f, 0.5f, 0.625f, 0.75f,
@@ -1133,9 +1177,12 @@ int main()
     unsigned int placaVAO = setupVAO(placaVertices, sizeof(placaVertices));
     unsigned int arcoVAO = setupVAO(arcoVertices, sizeof(arcoVertices));
     unsigned int floorVAO = setupVAO(floorVertices, sizeof(floorVertices));
+    unsigned int cubeVAO = setupVAO(cubeVertices, sizeof(cubeVertices));
 
     Shader ourShader("vertex.glsl", "fragment.glsl");
     Shader shaderVermelho("vertex.glsl", "fragment_vermelho.glsl");
+    Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
+    Shader lightCubeShader("light_cube.vs", "light_cube.fs");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
     unsigned int texture2 = loadTexture("res/images/Chao2.png", GL_RGBA);
@@ -1165,9 +1212,6 @@ int main()
         glActiveTexture(GL_TEXTURE1);
         // glBindTexture(GL_TEXTURE_2D, texture2);
 
-        // activate shader
-        shaderVermelho.use();
-
         // Camera
         float yawRadians = glm::radians(-45.0);
         cameraFront.x = cos(yawRadians);
@@ -1178,7 +1222,34 @@ int main()
         glm::mat4 projection = glm::mat4(1.0f);
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
+
+        glm::mat4 modelLuz = glm::mat4(1.0f);
+        // Demonstra o problema da distorção do vetor normal
+        //model = glm::scale(model, glm::vec3(0.5f, 0.2f, 3.0f)); // transformação de escala não linear
+        lightingShader.setMat4("model", modelLuz);
+        glm::vec3 lightPos(0.0f, 3.0f, 0.0f);
+        float specularStrength = 0.5;
+        lightingShader.use();
+        lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+        lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("lightPos", lightPos);
+        lightingShader.setVec3("viewPos", cameraPos);
+        lightingShader.setFloat("specularStrength",specularStrength);
+        lightingShader.setMat4("projection", projection);
+        lightingShader.setMat4("view", view);
+
+        lightCubeShader.use();
+        lightCubeShader.setMat4("projection", projection);
+        lightCubeShader.setMat4("view", view);
+        modelLuz = glm::mat4(1.0f);
+        modelLuz = glm::translate(modelLuz, lightPos);
+        modelLuz = glm::scale(modelLuz, glm::vec3(1.0f)); // a smaller cube
+        lightCubeShader.setMat4("model", modelLuz);
+        glBindVertexArray(cubeVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+
         // Carro
+        shaderVermelho.use();
         glm::mat4 modelCarro = glm::mat4(1.0f);
         modelCarro = glm::translate(modelCarro, carroPosicao);
         modelCarro = glm::scale(modelCarro, glm::vec3(0.5f, 0.5f, 0.5f));
