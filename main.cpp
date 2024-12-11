@@ -929,12 +929,14 @@ float arcoVertices[] = {
     13.0f, 0.0f, -6.0f, 1.0f, 0.0f};
 
 float floorVertices[] = {
-    -30.0f, -1.0f, 30.0f, 0.0f, 0.0f,
-    30.0f,  -1.0f, 30.0f, 1.0f, 0.0f,
-    30.0f,  -1.0f, -30.0f, 1.0f, 1.0f,
-    30.0f,  -1.0f, -30.0f, 1.0f, 1.0f,
-    -30.0f, -1.0f, -30.0f, 0.0f, 1.0f,
-    -30.0f, -1.0f, 30.0f, 0.0f, 0.0f};
+    // posições           // normais         // texCoords
+    -30.0f, -1.0f, 30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
+    30.0f,  -1.0f, 30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,
+    30.0f,  -1.0f, -30.0f, 0.0f, 1.0f, 0.0f,  1.0f, 1.0f,
+    30.0f,  -1.0f, -30.0f, 0.0f, 1.0f, 0.0f,  1.0f, 1.0f,
+    -30.0f, -1.0f, -30.0f, 0.0f, 1.0f, 0.0f,  0.0f, 1.0f,
+    -30.0f, -1.0f, 30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f
+};
 
 std::vector<glm::vec2> innerTrack = {
     glm::vec2(-24.0f,  4.0f),
@@ -1101,6 +1103,29 @@ unsigned int setupVAO(const float *vertices, size_t size)
     return VAO;
 }
 
+unsigned int setupLightVAO(const float *vertices, size_t size)
+{
+    unsigned int VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // normal vector attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+    // texture  vector attribute
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
+    return VAO;
+}
+
 // Função para carregar e configurar texturas
 unsigned int loadTexture(const char *path, GLenum textureFormat = GL_RGB)
 {
@@ -1181,7 +1206,7 @@ int main()
 
     unsigned int VAOcarro = setupVAO(carroVertices, sizeof(carroVertices));
     unsigned int arcoVAO = setupVAO(arcoVertices, sizeof(arcoVertices));
-    unsigned int floorVAO = setupVAO(floorVertices, sizeof(floorVertices));
+    unsigned int floorVAO = setupLightVAO(floorVertices, sizeof(floorVertices));
     unsigned int cubeVAO = setupVAO(cubeVertices, sizeof(cubeVertices));
 
     Shader shader1("vertex.glsl", "fragment.glsl");
