@@ -1246,14 +1246,31 @@ int main()
         //model = glm::scale(model, glm::vec3(0.5f, 0.2f, 3.0f)); // transformação de escala não linear
         lightingShader.use();
         lightingShader.setMat4("model", modelLuz);
-        glm::vec3 lightPos = luzBasePosicao;
-        float specularStrength = 0.1;
+        glm::vec3 lightPos = carroPosicao;
+        lightPos.x += cos(glm::radians(carroRotacao)) * 2;
+        lightPos.z += sin(glm::radians(carroRotacao)) * 2;
+        lightPos.y = 2.0f; // Ajuste se o farol estiver acima do carro
+
+
+        float carroRotacaoRad = glm::radians(carroRotacao);
+        glm::vec3 lightDir(
+            sin(carroRotacaoRad),  // X
+            0.0f,                  // Y (assumindo que o farol está no plano horizontal)
+            cos(carroRotacaoRad)   // Z
+        );
+        lightingShader.setVec3("lightDirection", lightDir);
+        float specularStrength = 0.5;
         lightingShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightPos", lightPos);
         lightingShader.setVec3("viewPos", cameraPos);
         lightingShader.setFloat("specularStrength",specularStrength);
 
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, lightPos);
+        lightingShader.setMat4("model", model);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
 
         // Camera
         float yawRadians = glm::radians(-45.0);
@@ -1284,7 +1301,7 @@ int main()
         glm::mat4 modelCarro = glm::mat4(1.0f);
         modelCarro = glm::translate(modelCarro, carroPosicao);
         modelCarro = glm::scale(modelCarro, glm::vec3(0.5f, 0.5f, 0.5f));
-        modelCarro = glm::rotate(modelCarro, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f));
+        modelCarro = glm::rotate(modelCarro, carroRotacaoRad, glm::vec3(0.0f, 1.0f, 0.0f));
         glm::vec2 carroPosicao2 = glm::vec2(carroPosicao.x, carroPosicao.z);
 
         if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack))
