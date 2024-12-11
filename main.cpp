@@ -969,6 +969,8 @@ glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
 float velocidadeCarro = 0.07f;
 float carroRotacao = 90.0f; // Rotação inicial
 
+glm::vec3 luzBasePosicao(0.0f, 5.0f, 0.0f); // Origem
+
 bool isPointInsidePolygon(const glm::vec2 &point, const std::vector<glm::vec2> &polygon)
 {
     int intersections = 0;
@@ -1178,7 +1180,6 @@ int main()
     }
 
     unsigned int VAOcarro = setupVAO(carroVertices, sizeof(carroVertices));
-    unsigned int placaVAO = setupVAO(placaVertices, sizeof(placaVertices));
     unsigned int arcoVAO = setupVAO(arcoVertices, sizeof(arcoVertices));
     unsigned int floorVAO = setupVAO(floorVertices, sizeof(floorVertices));
     unsigned int cubeVAO = setupVAO(cubeVertices, sizeof(cubeVertices));
@@ -1189,7 +1190,7 @@ int main()
     Shader lightCubeShader("light_cube.vs", "light_cube.fs");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
-    unsigned int texture2 = loadTexture("res/images/Chao3.png", GL_RGBA);
+    unsigned int texture2 = loadTexture("res/images/Chao2.png", GL_RGBA);
     unsigned int texture3 = loadTexture("res/images/Pare.png", GL_RGBA);
     unsigned int texture4 = loadTexture("res/images/PareVerso.png", GL_RGBA);
 
@@ -1197,6 +1198,7 @@ int main()
     shader1.use();
     shader1.setInt("texture1", 0);
     shader1.setInt("texture2", 1);
+    lightingShader.setInt("texture1", 0);
 
     // render loop
     // -----------
@@ -1217,12 +1219,11 @@ int main()
         // Demonstra o problema da distorção do vetor normal
         //model = glm::scale(model, glm::vec3(0.5f, 0.2f, 3.0f)); // transformação de escala não linear
         lightingShader.setMat4("model", modelLuz);
-        glm::vec3 lightPos = carroPosicao;
-        lightPos.x = lightPos.x+2;
+        glm::vec3 lightPos = luzBasePosicao;
         float specularStrength = 0.1;
         lightingShader.use();
-        lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-        lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightPos", lightPos);
         lightingShader.setVec3("viewPos", cameraPos);
         lightingShader.setFloat("specularStrength",specularStrength);
@@ -1239,6 +1240,16 @@ int main()
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         lightingShader.setMat4("projection", projection);
         lightingShader.setMat4("view", view);
+
+        // Chão
+        //shader1.use();
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        glm::mat4 modelFloor = glm::mat4(1.0f);
+        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão pra baixo
+        lightingShader.setMat4("model", modelFloor);
+        glBindVertexArray(floorVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         // Carro
         shaderVermelho.use();
@@ -1323,15 +1334,6 @@ int main()
         shader1.setMat4("model", modelArco);
         glDrawArrays(GL_TRIANGLES, 0, 1000);
         glBindVertexArray(0);
-
-        // Chão
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture2);
-        glm::mat4 modelFloor = glm::mat4(1.0f);
-        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão pra baixo
-        shader1.setMat4("model", modelFloor);
-        glBindVertexArray(floorVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
