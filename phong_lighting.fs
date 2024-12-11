@@ -1,4 +1,3 @@
-
 #version 330 core
 out vec4 FragColor;
 
@@ -7,7 +6,7 @@ in vec3 Normal;
 in vec3 FragPos;
 
 uniform vec3 lightPos;          // Posição da luz (do carro)
-uniform vec3 lightDirection;    // Direção do cone de luz
+uniform vec3 lightDirection;    // Direção da luz (spotlight)
 uniform vec3 viewPos;           // Posição da câmera
 uniform vec3 lightColor;        // Cor da luz
 uniform vec3 objectColor;       // Cor do objeto
@@ -25,13 +24,13 @@ void main()
     float ambientStrength = 0.3;
     vec3 ambient = ambientStrength * lightColor;
 
-    // Direção da luz, calculada a partir da posição do carro e a direção do farol
-    vec3 lightDir = normalize(lightPos - FragPos);  // Calcula a direção da luz a partir da posição da luz
+    // Direção da luz (calcular em relação à posição da luz e o fragmento)
+    vec3 lightDir = normalize(lightPos - FragPos);  // Luz vindo de lightPos
 
     // Cálculo da intensidade do cone de luz
-    float theta = dot(lightDir, normalize(-lightDirection)); // Compara com a direção do cone
+    float theta = dot(lightDir, normalize(-lightDirection)); // Comparando direção do cone
     float epsilon = outerCutOff - cutOff;
-    float intensity = clamp((theta - outerCutOff) / epsilon, 0.0, 1.0); // Intensidade do cone de luz
+    float intensity = clamp((theta - outerCutOff) / epsilon, 0.0, 1.0); // Intensidade do cone
 
     // Luz difusa
     vec3 norm = normalize(Normal);
@@ -44,10 +43,10 @@ void main()
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
     vec3 specular = specularStrength * spec * lightColor;
 
-    // Efeito do spotlight, ajustado pela intensidade do cone
+    // Efeito do spotlight com intensidade aplicada
     vec3 spotlightEffect = (ambient + diffuse + specular) * intensity;
-    vec3 result = spotlightEffect * objectColor;
+    vec3 result = (spotlightEffect + ambient) * objectColor;;
 
-    // Aplica a textura ao objeto
+    // Aplicando a textura ao objeto
     FragColor = texture(texture1, TexCoord) * vec4(result, 1.0);
 }

@@ -1250,19 +1250,19 @@ int main()
 
         float carroRotacaoRad = glm::radians(carroRotacao);
         glm::vec3 lightDir(
-            cos(carroRotacaoRad),  // X
+            sin(carroRotacaoRad),  // X
             0.0f,                  // Y (assumindo que o farol está no plano horizontal)
-            sin(carroRotacaoRad)   // Z
+            cos(carroRotacaoRad)   // Z
         );
         lightingShader.setVec3("lightDirection", lightDir);
-        float specularStrength = 4.5;
+        float specularStrength = 1.5;
         lightingShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightPos", lightPos);
         lightingShader.setVec3("viewPos", cameraPos);
         lightingShader.setFloat("specularStrength",specularStrength);
-        float cutOff = glm::cos(glm::radians(12.5f));       // Ângulo interno do cone
-        float outerCutOff = glm::cos(glm::radians(17.5f)); // Ângulo externo do cone
+        float cutOff = glm::cos(glm::radians(17.5f));       // Ângulo interno do cone
+        float outerCutOff = glm::cos(glm::radians(15.5f)); // Ângulo externo do cone
         lightingShader.setFloat("cutOff", cutOff);
         lightingShader.setFloat("outerCutOff", outerCutOff);
 
