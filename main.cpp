@@ -1190,7 +1190,7 @@ int main()
     Shader lightCubeShader("light_cube.vs", "light_cube.fs");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
-    unsigned int texture2 = loadTexture("res/images/Chao2.png", GL_RGBA);
+    unsigned int texture2 = loadTexture("res/images/Chao.jpg", GL_RGB);
     unsigned int texture3 = loadTexture("res/images/Pare.png", GL_RGBA);
     unsigned int texture4 = loadTexture("res/images/PareVerso.png", GL_RGBA);
 
@@ -1218,10 +1218,10 @@ int main()
         glm::mat4 modelLuz = glm::mat4(1.0f);
         // Demonstra o problema da distorção do vetor normal
         //model = glm::scale(model, glm::vec3(0.5f, 0.2f, 3.0f)); // transformação de escala não linear
+        lightingShader.use();
         lightingShader.setMat4("model", modelLuz);
         glm::vec3 lightPos = luzBasePosicao;
         float specularStrength = 0.1;
-        lightingShader.use();
         lightingShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightPos", lightPos);
@@ -1250,6 +1250,8 @@ int main()
         lightingShader.setMat4("model", modelFloor);
         glBindVertexArray(floorVAO);
         glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+        glBindTexture(GL_TEXTURE_2D, 0);
 
         // Carro
         shaderVermelho.use();
