@@ -1246,31 +1246,27 @@ int main()
         //model = glm::scale(model, glm::vec3(0.5f, 0.2f, 3.0f)); // transformação de escala não linear
         lightingShader.use();
         lightingShader.setMat4("model", modelLuz);
-        glm::vec3 lightPos = carroPosicao;
-        lightPos.x += cos(glm::radians(carroRotacao)) * 2;
-        lightPos.z += sin(glm::radians(carroRotacao)) * 2;
-        lightPos.y = 2.0f; // Ajuste se o farol estiver acima do carro
-
+        glm::vec3 lightPos = carroPosicao;// + glm::vec3(2.0f, 0.0f, 0.0f);  // Ajuste conforme a posição do carro
 
         float carroRotacaoRad = glm::radians(carroRotacao);
         glm::vec3 lightDir(
-            sin(carroRotacaoRad),  // X
+            cos(carroRotacaoRad),  // X
             0.0f,                  // Y (assumindo que o farol está no plano horizontal)
-            cos(carroRotacaoRad)   // Z
+            sin(carroRotacaoRad)   // Z
         );
         lightingShader.setVec3("lightDirection", lightDir);
-        float specularStrength = 0.5;
+        float specularStrength = 4.5;
         lightingShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightPos", lightPos);
         lightingShader.setVec3("viewPos", cameraPos);
         lightingShader.setFloat("specularStrength",specularStrength);
+        float cutOff = glm::cos(glm::radians(12.5f));       // Ângulo interno do cone
+        float outerCutOff = glm::cos(glm::radians(17.5f)); // Ângulo externo do cone
+        lightingShader.setFloat("cutOff", cutOff);
+        lightingShader.setFloat("outerCutOff", outerCutOff);
 
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, lightPos);
-        lightingShader.setMat4("model", model);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
-        glBindVertexArray(0);
+
 
         // Camera
         float yawRadians = glm::radians(-45.0);
