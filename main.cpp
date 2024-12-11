@@ -929,14 +929,15 @@ float arcoVertices[] = {
     13.0f, 0.0f, -6.0f, 1.0f, 0.0f};
 
 float floorVertices[] = {
-    // posições           // normais         // texCoords
-    -30.0f, -1.0f, 30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
-    30.0f,  -1.0f, 30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,
-    30.0f,  -1.0f, -30.0f, 0.0f, 1.0f, 0.0f,  1.0f, 1.0f,
-    30.0f,  -1.0f, -30.0f, 0.0f, 1.0f, 0.0f,  1.0f, 1.0f,
-    -30.0f, -1.0f, -30.0f, 0.0f, 1.0f, 0.0f,  0.0f, 1.0f,
-    -30.0f, -1.0f, 30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f
+    // posições            // normais         // texCoords
+    -30.0f, -1.0f,  30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,  // canto inferior esquerdo
+     30.0f, -1.0f,  30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,  // canto inferior direito
+     30.0f, -1.0f, -30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 1.0f,  // canto superior direito
+     30.0f, -1.0f, -30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 1.0f,  // canto superior direito
+    -30.0f, -1.0f, -30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 1.0f,  // canto superior esquerdo
+    -30.0f, -1.0f,  30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f   // canto inferior esquerdo
 };
+
 
 std::vector<glm::vec2> innerTrack = {
     glm::vec2(-24.0f,  4.0f),
@@ -1135,8 +1136,8 @@ unsigned int loadTexture(const char *path, GLenum textureFormat = GL_RGB)
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_CLAMP_TO_EDGE);
 
     int width, height, nrChannels;
     stbi_set_flip_vertically_on_load(true);
@@ -1215,7 +1216,7 @@ int main()
     Shader lightCubeShader("light_cube.vs", "light_cube.fs");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
-    unsigned int texture2 = loadTexture("res/images/Chao.jpg", GL_RGB);
+    unsigned int texture2 = loadTexture("res/images/Chao.png", GL_RGBA);
     unsigned int texture3 = loadTexture("res/images/Pare.png", GL_RGBA);
     unsigned int texture4 = loadTexture("res/images/PareVerso.png", GL_RGBA);
 
