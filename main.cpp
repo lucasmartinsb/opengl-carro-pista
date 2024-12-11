@@ -11,50 +11,47 @@
 #include <iostream>
 
 float cubeVertices[] = {
-     0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    -0.5f, -0.5f,  0.5f, 1.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-    
-    -0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-    -0.5f, 0.5f,  0.5f, 0.0f, 0.0f,
-     0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f, 0.5f,  0.5f, 0.0f, 1.0f,
-    
-     0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-     0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-     0.5f,  0.5f, 0.5f, 1.0f, 1.0f,
-    -0.5f,  0.5f, 0.5f, 0.0f, 1.0f,
-    
-    -0.5f,  0.5f,  0.5f, 1.0f, 1.0f,
-    -0.5f,  0.5f, -0.5f, 0.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-     0.5f,  0.5f, -0.5f, 0.0f, 1.0f,
-    
-     0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-     0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-     0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    
-    -0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f,  0.5f,  0.5f, 1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-    -0.5f,  0.5f,  0.5f, 0.0f, 0.0f,
-    
-     0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    -0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    
-     0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-    -0.5f,  0.5f, 0.5f, 0.0f, 1.0f,
-    -0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-    -0.5f,  0.5f, 0.5f, 1.0f, 1.0f,
+-0.5f, -0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,   // 1
+-0.5f,  0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f,   // 2
+ 0.5f,  0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f,   // 3
+-0.5f, -0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,   // 4
+ 0.5f,  0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f,   // 5
+ 0.5f, -0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f,   // 6
 
-    -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-    -0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f,  0.5f, -0.5f, 0.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f, 1.0f, 0.0f
+-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f,    // 1
+-0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 0.0f, 1.0f,    // 2
+ 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f,    // 3
+-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f,    // 4
+ 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f,    // 5
+ 0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f,    // 6
+
+-0.5f,  0.5f,  0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,    // 1
+-0.5f, -0.5f,  0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,    // 2
+-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,    // 3
+-0.5f,  0.5f,  0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,    // 4
+-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,    // 5
+-0.5f,  0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,    // 6
+
+ 0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f,    // 1
+ 0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f,    // 2
+ 0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,    // 3
+ 0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f,    // 4
+ 0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,    // 5
+ 0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f,    // 6
+
+-0.5f, -0.5f, -0.5f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f,    // 1
+-0.5f, -0.5f,  0.5f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f,    // 2
+ 0.5f, -0.5f,  0.5f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f,    // 3
+-0.5f, -0.5f, -0.5f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f,    // 4
+ 0.5f, -0.5f,  0.5f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f,    // 5
+ 0.5f, -0.5f, -0.5f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f,    // 6
+
+-0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,     // 1
+-0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f,     // 2
+ 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,     // 3
+-0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,     // 4
+ 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,     // 5
+ 0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f      // 6
 };
 
 float carroVertices[] = {
@@ -929,12 +926,15 @@ float arcoVertices[] = {
     13.0f, 0.0f, -6.0f, 1.0f, 0.0f};
 
 float floorVertices[] = {
-    -30.0f, -1.0f, 30.0f, 0.0f, 0.0f,
-    30.0f,  -1.0f, 30.0f, 1.0f, 0.0f,
-    30.0f,  -1.0f, -30.0f, 1.0f, 1.0f,
-    30.0f,  -1.0f, -30.0f, 1.0f, 1.0f,
-    -30.0f, -1.0f, -30.0f, 0.0f, 1.0f,
-    -30.0f, -1.0f, 30.0f, 0.0f, 0.0f};
+    // posições            // normais         // texCoords
+    -30.0f, -1.0f,  30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,  // canto inferior esquerdo
+     30.0f, -1.0f,  30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,  // canto inferior direito
+     30.0f, -1.0f, -30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 1.0f,  // canto superior direito
+     30.0f, -1.0f, -30.0f,  0.0f, 1.0f, 0.0f,  1.0f, 1.0f,  // canto superior direito
+    -30.0f, -1.0f, -30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 1.0f,  // canto superior esquerdo
+    -30.0f, -1.0f,  30.0f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f   // canto inferior esquerdo
+};
+
 
 std::vector<glm::vec2> innerTrack = {
     glm::vec2(-24.0f,  4.0f),
@@ -965,9 +965,11 @@ glm::vec3 cameraPos = glm::vec3(-45.0f, 2.0f, 45.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
+glm::vec3 carroPosicao(-15.0f, -1.5f, 7.0f); // Origem
 float velocidadeCarro = 0.07f;
 float carroRotacao = 90.0f; // Rotação inicial
+
+glm::vec3 luzBasePosicao(0.0f, 5.0f, 0.0f); // Origem
 
 bool isPointInsidePolygon(const glm::vec2 &point, const std::vector<glm::vec2> &polygon)
 {
@@ -1099,6 +1101,29 @@ unsigned int setupVAO(const float *vertices, size_t size)
     return VAO;
 }
 
+unsigned int setupLightVAO(const float *vertices, size_t size)
+{
+    unsigned int VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // normal vector attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+    // texture  vector attribute
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
+    return VAO;
+}
+
 // Função para carregar e configurar texturas
 unsigned int loadTexture(const char *path, GLenum textureFormat = GL_RGB)
 {
@@ -1108,8 +1133,8 @@ unsigned int loadTexture(const char *path, GLenum textureFormat = GL_RGB)
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_CLAMP_TO_EDGE);
 
     int width, height, nrChannels;
     stbi_set_flip_vertically_on_load(true);
@@ -1178,25 +1203,19 @@ int main()
     }
 
     unsigned int VAOcarro = setupVAO(carroVertices, sizeof(carroVertices));
-    unsigned int placaVAO = setupVAO(placaVertices, sizeof(placaVertices));
     unsigned int arcoVAO = setupVAO(arcoVertices, sizeof(arcoVertices));
-    unsigned int floorVAO = setupVAO(floorVertices, sizeof(floorVertices));
-    unsigned int cubeVAO = setupVAO(cubeVertices, sizeof(cubeVertices));
+    unsigned int floorVAO = setupLightVAO(floorVertices, sizeof(floorVertices));
+    unsigned int cubeVAO = setupLightVAO(cubeVertices, sizeof(cubeVertices));
 
-    Shader shader1("vertex.glsl", "fragment.glsl");
     Shader shaderVermelho("vertex.glsl", "fragment_vermelho.glsl");
     Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
-    Shader lightCubeShader("light_cube.vs", "light_cube.fs");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
-    unsigned int texture2 = loadTexture("res/images/Chao3.png", GL_RGBA);
+    unsigned int texture2 = loadTexture("res/images/Chao.png", GL_RGBA);
     unsigned int texture3 = loadTexture("res/images/Pare.png", GL_RGBA);
     unsigned int texture4 = loadTexture("res/images/PareVerso.png", GL_RGBA);
 
-    // Associar as texturas aos slots do shader
-    shader1.use();
-    shader1.setInt("texture1", 0);
-    shader1.setInt("texture2", 1);
+    lightingShader.setInt("texture1", 0);
 
     // render loop
     // -----------
@@ -1216,16 +1235,28 @@ int main()
         glm::mat4 modelLuz = glm::mat4(1.0f);
         // Demonstra o problema da distorção do vetor normal
         //model = glm::scale(model, glm::vec3(0.5f, 0.2f, 3.0f)); // transformação de escala não linear
-        lightingShader.setMat4("model", modelLuz);
-        glm::vec3 lightPos = carroPosicao;
-        lightPos.x = lightPos.x+2;
-        float specularStrength = 0.1;
         lightingShader.use();
-        lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-        lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+        lightingShader.setMat4("model", modelLuz);
+        glm::vec3 lightPos = carroPosicao;// + glm::vec3(2.0f, 0.0f, 0.0f);  // Ajuste conforme a posição do carro
+
+        float carroRotacaoRad = glm::radians(carroRotacao);
+        glm::vec3 lightDir(
+            sin(carroRotacaoRad),  // X
+            0.0f,                  // Y (assumindo que o farol está no plano horizontal)
+            cos(carroRotacaoRad)   // Z
+        );
+        lightingShader.setVec3("lightDirection", lightDir);
+        float specularStrength = 1.5;
+        lightingShader.setVec3("objectColor", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("lightColor",  1.0f, 1.0f, 1.0f);
         lightingShader.setVec3("lightPos", lightPos);
         lightingShader.setVec3("viewPos", cameraPos);
         lightingShader.setFloat("specularStrength",specularStrength);
+        float cutOff = glm::cos(glm::radians(31.0f));       // Ângulo interno do cone
+        float outerCutOff = glm::cos(glm::radians(30.5f)); // Ângulo externo do cone
+        lightingShader.setFloat("cutOff", cutOff);
+        lightingShader.setFloat("outerCutOff", outerCutOff);
+
 
 
         // Camera
@@ -1240,12 +1271,23 @@ int main()
         lightingShader.setMat4("projection", projection);
         lightingShader.setMat4("view", view);
 
+        // Chão
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        glm::mat4 modelFloor = glm::mat4(1.0f);
+        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão pra baixo
+        lightingShader.setMat4("model", modelFloor);
+        glBindVertexArray(floorVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
         // Carro
         shaderVermelho.use();
         glm::mat4 modelCarro = glm::mat4(1.0f);
         modelCarro = glm::translate(modelCarro, carroPosicao);
         modelCarro = glm::scale(modelCarro, glm::vec3(0.5f, 0.5f, 0.5f));
-        modelCarro = glm::rotate(modelCarro, glm::radians(carroRotacao), glm::vec3(0.0f, 1.0f, 0.0f));
+        modelCarro = glm::rotate(modelCarro, carroRotacaoRad, glm::vec3(0.0f, 1.0f, 0.0f));
         glm::vec2 carroPosicao2 = glm::vec2(carroPosicao.x, carroPosicao.z);
 
         if (!isCarInsideTrack(carroPosicao2, innerTrack, outerTrack))
@@ -1265,7 +1307,7 @@ int main()
         shaderVermelho.setMat4("view", view);
         shaderVermelho.setMat4("projection", projection);
 
-        shader1.use();
+        lightingShader.use();
         // Placa 1 (placa)
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture3);
@@ -1274,7 +1316,7 @@ int main()
         modelPlaca1 = glm::translate(modelPlaca1, glm::vec3(-4.0f, 1.5f, 11.5f));
         modelPlaca1 = glm::scale(modelPlaca1, glm::vec3(0.01f, 1.2f, 1.2f));
         modelPlaca1 = glm::rotate(modelPlaca1, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelPlaca1);
+        lightingShader.setMat4("model", modelPlaca1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         // Placa 1 (base)
@@ -1285,7 +1327,7 @@ int main()
         modelBase1 = glm::translate(modelBase1, glm::vec3(-3.9f, 0.0f, 11.5f));
         modelBase1 = glm::scale(modelBase1, glm::vec3(0.15f, 2.5f, 0.15f));
         modelBase1 = glm::rotate(modelBase1, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelBase1);
+        lightingShader.setMat4("model", modelBase1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
@@ -1297,7 +1339,7 @@ int main()
         modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(-4.0f, 1.5f, -9.7f));
         modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.01f, 1.2f, 1.2f));
         modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelPlaca2);
+        lightingShader.setMat4("model", modelPlaca2);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         // Placa 2 (base)
@@ -1308,7 +1350,7 @@ int main()
         modelBase2 = glm::translate(modelBase2, glm::vec3(-4.1f, 0.0f, -9.7f));
         modelBase2 = glm::scale(modelBase2, glm::vec3(0.15f, 2.5f, 0.15f));
         modelBase2 = glm::rotate(modelBase2, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelBase2);
+        lightingShader.setMat4("model", modelBase2);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
@@ -1320,18 +1362,9 @@ int main()
         modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 13.0f));
         modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.70f));
         modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelArco);
+        lightingShader.setMat4("model", modelArco);
         glDrawArrays(GL_TRIANGLES, 0, 1000);
         glBindVertexArray(0);
-
-        // Chão
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture2);
-        glm::mat4 modelFloor = glm::mat4(1.0f);
-        modelFloor = glm::translate(modelFloor, glm::vec3(0.0f, -1.0f, 0.0f)); // Desloca o chão pra baixo
-        shader1.setMat4("model", modelFloor);
-        glBindVertexArray(floorVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -1339,13 +1372,13 @@ int main()
         glfwPollEvents();
 
         // retrieve the matrix uniform locations
-        unsigned int modelLoc = glGetUniformLocation(shader1.ID, "model");
-        unsigned int viewLoc = glGetUniformLocation(shader1.ID, "view");
+        unsigned int modelLoc = glGetUniformLocation(lightingShader.ID, "model");
+        unsigned int viewLoc = glGetUniformLocation(lightingShader.ID, "view");
         // pass them to the shaders (3 different ways)
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelCarro));
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
         // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-        shader1.setMat4("projection", projection);
+        lightingShader.setMat4("projection", projection);
     }
 
     glDeleteVertexArrays(1, &VAOcarro);
