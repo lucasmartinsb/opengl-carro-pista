@@ -21,7 +21,7 @@ uniform sampler2D texture1;
 void main()
 {
     // Luz ambiente
-    float ambientStrength = 0.3;
+    float ambientStrength = 0.2;
     vec3 ambient = ambientStrength * lightColor;
 
     // Direção da luz (calcular em relação à posição da luz e o fragmento)

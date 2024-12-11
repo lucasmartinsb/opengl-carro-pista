@@ -11,50 +11,47 @@
 #include <iostream>
 
 float cubeVertices[] = {
-     0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    -0.5f, -0.5f,  0.5f, 1.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-    
-    -0.5f, 0.5f, -0.5f, 0.0f, 1.0f,
-    -0.5f, 0.5f,  0.5f, 0.0f, 0.0f,
-     0.5f, 0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f, 0.5f,  0.5f, 0.0f, 1.0f,
-    
-     0.5f, -0.5f, 0.5f, 0.0f, 0.0f,
-     0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-     0.5f,  0.5f, 0.5f, 1.0f, 1.0f,
-    -0.5f,  0.5f, 0.5f, 0.0f, 1.0f,
-    
-    -0.5f,  0.5f,  0.5f, 1.0f, 1.0f,
-    -0.5f,  0.5f, -0.5f, 0.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-     0.5f,  0.5f, -0.5f, 0.0f, 1.0f,
-    
-     0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-     0.5f, -0.5f, -0.5f, 0.0f, 1.0f,
-     0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    
-    -0.5f, -0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f,  0.5f,  0.5f, 1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-    -0.5f,  0.5f,  0.5f, 0.0f, 0.0f,
-    
-     0.5f, -0.5f, -0.5f, 1.0f, 0.0f,
-     0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    -0.5f, -0.5f,  0.5f, 0.0f, 0.0f,
-    
-     0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-    -0.5f,  0.5f, 0.5f, 0.0f, 1.0f,
-    -0.5f, -0.5f, 0.5f, 1.0f, 0.0f,
-    -0.5f,  0.5f, 0.5f, 1.0f, 1.0f,
+-0.5f, -0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,   // 1
+-0.5f,  0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f,   // 2
+ 0.5f,  0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f,   // 3
+-0.5f, -0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,   // 4
+ 0.5f,  0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f,   // 5
+ 0.5f, -0.5f, -0.5f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f,   // 6
 
-    -0.5f, -0.5f, -0.5f, 0.0f, 0.0f,
-    -0.5f,  0.5f, -0.5f, 1.0f, 1.0f,
-     0.5f,  0.5f, -0.5f, 0.0f, 1.0f,
-    -0.5f, -0.5f, -0.5f, 1.0f, 0.0f
+-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f,    // 1
+-0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 0.0f, 1.0f,    // 2
+ 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f,    // 3
+-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f,    // 4
+ 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f,    // 5
+ 0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f,    // 6
+
+-0.5f,  0.5f,  0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,    // 1
+-0.5f, -0.5f,  0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,    // 2
+-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,    // 3
+-0.5f,  0.5f,  0.5f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,    // 4
+-0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,    // 5
+-0.5f,  0.5f, -0.5f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,    // 6
+
+ 0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f,    // 1
+ 0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f,    // 2
+ 0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,    // 3
+ 0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f,    // 4
+ 0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,    // 5
+ 0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f,    // 6
+
+-0.5f, -0.5f, -0.5f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f,    // 1
+-0.5f, -0.5f,  0.5f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f,    // 2
+ 0.5f, -0.5f,  0.5f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f,    // 3
+-0.5f, -0.5f, -0.5f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f,    // 4
+ 0.5f, -0.5f,  0.5f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f,    // 5
+ 0.5f, -0.5f, -0.5f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f,    // 6
+
+-0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,     // 1
+-0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f,     // 2
+ 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,     // 3
+-0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,     // 4
+ 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f,     // 5
+ 0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f      // 6
 };
 
 float carroVertices[] = {
@@ -968,7 +965,7 @@ glm::vec3 cameraPos = glm::vec3(-45.0f, 2.0f, 45.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-glm::vec3 carroPosicao(-7.0f, -1.5f, 7.0f); // Origem
+glm::vec3 carroPosicao(-15.0f, -1.5f, 7.0f); // Origem
 float velocidadeCarro = 0.07f;
 float carroRotacao = 90.0f; // Rotação inicial
 
@@ -1208,22 +1205,16 @@ int main()
     unsigned int VAOcarro = setupVAO(carroVertices, sizeof(carroVertices));
     unsigned int arcoVAO = setupVAO(arcoVertices, sizeof(arcoVertices));
     unsigned int floorVAO = setupLightVAO(floorVertices, sizeof(floorVertices));
-    unsigned int cubeVAO = setupVAO(cubeVertices, sizeof(cubeVertices));
+    unsigned int cubeVAO = setupLightVAO(cubeVertices, sizeof(cubeVertices));
 
-    Shader shader1("vertex.glsl", "fragment.glsl");
     Shader shaderVermelho("vertex.glsl", "fragment_vermelho.glsl");
     Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
-    Shader lightCubeShader("light_cube.vs", "light_cube.fs");
     // Carregar texturas
     unsigned int texture1 = loadTexture("res/images/cinza.jpg", GL_RGB);
     unsigned int texture2 = loadTexture("res/images/Chao.png", GL_RGBA);
     unsigned int texture3 = loadTexture("res/images/Pare.png", GL_RGBA);
     unsigned int texture4 = loadTexture("res/images/PareVerso.png", GL_RGBA);
 
-    // Associar as texturas aos slots do shader
-    shader1.use();
-    shader1.setInt("texture1", 0);
-    shader1.setInt("texture2", 1);
     lightingShader.setInt("texture1", 0);
 
     // render loop
@@ -1261,8 +1252,8 @@ int main()
         lightingShader.setVec3("lightPos", lightPos);
         lightingShader.setVec3("viewPos", cameraPos);
         lightingShader.setFloat("specularStrength",specularStrength);
-        float cutOff = glm::cos(glm::radians(17.5f));       // Ângulo interno do cone
-        float outerCutOff = glm::cos(glm::radians(15.5f)); // Ângulo externo do cone
+        float cutOff = glm::cos(glm::radians(31.0f));       // Ângulo interno do cone
+        float outerCutOff = glm::cos(glm::radians(30.5f)); // Ângulo externo do cone
         lightingShader.setFloat("cutOff", cutOff);
         lightingShader.setFloat("outerCutOff", outerCutOff);
 
@@ -1281,7 +1272,6 @@ int main()
         lightingShader.setMat4("view", view);
 
         // Chão
-        //shader1.use();
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2);
         glm::mat4 modelFloor = glm::mat4(1.0f);
@@ -1317,7 +1307,7 @@ int main()
         shaderVermelho.setMat4("view", view);
         shaderVermelho.setMat4("projection", projection);
 
-        shader1.use();
+        lightingShader.use();
         // Placa 1 (placa)
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture3);
@@ -1326,7 +1316,7 @@ int main()
         modelPlaca1 = glm::translate(modelPlaca1, glm::vec3(-4.0f, 1.5f, 11.5f));
         modelPlaca1 = glm::scale(modelPlaca1, glm::vec3(0.01f, 1.2f, 1.2f));
         modelPlaca1 = glm::rotate(modelPlaca1, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelPlaca1);
+        lightingShader.setMat4("model", modelPlaca1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         // Placa 1 (base)
@@ -1337,7 +1327,7 @@ int main()
         modelBase1 = glm::translate(modelBase1, glm::vec3(-3.9f, 0.0f, 11.5f));
         modelBase1 = glm::scale(modelBase1, glm::vec3(0.15f, 2.5f, 0.15f));
         modelBase1 = glm::rotate(modelBase1, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelBase1);
+        lightingShader.setMat4("model", modelBase1);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
@@ -1349,7 +1339,7 @@ int main()
         modelPlaca2 = glm::translate(modelPlaca2, glm::vec3(-4.0f, 1.5f, -9.7f));
         modelPlaca2 = glm::scale(modelPlaca2, glm::vec3(0.01f, 1.2f, 1.2f));
         modelPlaca2 = glm::rotate(modelPlaca2, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelPlaca2);
+        lightingShader.setMat4("model", modelPlaca2);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         // Placa 2 (base)
@@ -1360,7 +1350,7 @@ int main()
         modelBase2 = glm::translate(modelBase2, glm::vec3(-4.1f, 0.0f, -9.7f));
         modelBase2 = glm::scale(modelBase2, glm::vec3(0.15f, 2.5f, 0.15f));
         modelBase2 = glm::rotate(modelBase2, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelBase2);
+        lightingShader.setMat4("model", modelBase2);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
@@ -1372,7 +1362,7 @@ int main()
         modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 13.0f));
         modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.70f));
         modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        shader1.setMat4("model", modelArco);
+        lightingShader.setMat4("model", modelArco);
         glDrawArrays(GL_TRIANGLES, 0, 1000);
         glBindVertexArray(0);
 
@@ -1382,13 +1372,13 @@ int main()
         glfwPollEvents();
 
         // retrieve the matrix uniform locations
-        unsigned int modelLoc = glGetUniformLocation(shader1.ID, "model");
-        unsigned int viewLoc = glGetUniformLocation(shader1.ID, "view");
+        unsigned int modelLoc = glGetUniformLocation(lightingShader.ID, "model");
+        unsigned int viewLoc = glGetUniformLocation(lightingShader.ID, "view");
         // pass them to the shaders (3 different ways)
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(modelCarro));
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
         // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-        shader1.setMat4("projection", projection);
+        lightingShader.setMat4("projection", projection);
     }
 
     glDeleteVertexArrays(1, &VAOcarro);
