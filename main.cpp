@@ -1359,7 +1359,7 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture1);
         glBindVertexArray(arcoVAO);
         glm::mat4 modelArco = glm::mat4(1.0f);
-        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 13.0f));
+        modelArco = glm::translate(modelArco, glm::vec3(2.0f, -1.5f, 14.0f));
         modelArco = glm::scale(modelArco, glm::vec3(0.50f, 0.60f, 0.70f));
         modelArco = glm::rotate(modelArco, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         lightingShader.setMat4("model", modelArco);
